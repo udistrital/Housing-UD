@@ -1,62 +1,188 @@
-<!-- Page Content -->
-<div class="container">
 
-    <!-- Portfolio Item Heading -->
-    <h1 class="my-4">LOCALIDAD <small>Tipo de Vivienda</small></h1>
+<div class="container-fluid">
+  <!--Barra de navegacion-->
+  <ol class="breadcrumb">
+     <li class="breadcrumb-item"><a [routerLink]="['home']"><i class="fa fa-home"></i> Inicio</a></li>
+     <li class="breadcrumb-item"><a [routerLink]="['alojamientos']"><i class="fa fa-search"></i> Buscar Alojamiento</a></li>
+     <li class="breadcrumb-item active"><i class="fa fa-map-marker"></i> Kennedy</li>
+  </ol>
 
-    <!-- Portfolio Item Row -->
-    <div class="row">
+   <!-- Portfolio Item Heading -->
+   <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> Kennedy <small>Casa Familiar</small></h1>
+   <hr>
+   <!-- Portfolio Item Row -->
+   <div class="row">
+      <div class="col-lg-8">
+         <img class="img-fluid" src="assets/img/img1.jpg" height="500px" width="700px" alt="">
 
-        <div class="col-md-8">
-            <img class="img-fluid" src="http://placehold.it/750x500" alt="">
-        </div>
+          <strong><i class="fa fa-users"></i> Miembros del alojamiento anfitrion: 5</strong>
+          <br>
+          <strong><i class="fa fa-map-marker"></i> Ubicada cerca a la facultad de: Ingeniería</strong>
+          <br>
+          <strong><i class="fa fa-transgender"></i> Prefieren hospedar: Mujeres</strong>
+         <hr>
+         <p class="text-justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+         </p>
+         <hr>
+         <h3 class="my-4">  <i class="fa fa-home text-info"></i> Componentes del Alojamiento</h3>
+         <table class="table table-striped">
+            <tbody>
+               <tr>
+                  <td> <i class="fa fa-bed"></i>  2 Dormitorios</td>
+                  <td> <i class="fa fa-bath"></i>  1 Baño</td>
+                  <td> <i class="fa fa-cutlery"></i> Acceso a cocina </td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-pencil"></i> Espacio para estudiar</td>
+                  <td> <i class="fa fa-close"></i> No se permite fumar</td>
+                  <td> <i class="fa fa-paw"></i> 1 Perro </td>
+               </tr>
+            </tbody>
+         </table>
+         <hr>
+         <!--Servicios de la casa-->
+         <h3 class="my-4">  <i class="fa fa-gears text-success"></i> Servicios del Alojamiento</h3>
+         <table class="table table-striped">
+            <tbody>
+               <tr>
+                  <td> <i class="fa fa-wifi"></i> Internet </td>
+                  <td>  <i class="fa fa-tv"></i> Televisión</td>
+                  <td> <i class="fa fa-tint"></i> Lavadora</td>
+                  <td> <i class="fa fa-flash"></i> Servicios Públicos</td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-laptop"></i> Computador </td>
+                  <td> <i class="fa fa-film"></i> Servicio de Cable </td>
+                  <td> <i class="fa fa-life-bouy"></i> Aire acondicionado</td>
+                  <td> <i class="fa fa-plug"></i> Electrodomesticos </td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-handshake-o"></i> Aseo de la habitación: No</td>
+                  <td> <i class="fa fa-suitcase"></i> Lavadería: No </td>
+                  <td> <i class="fa fa-fire"></i> Agua Caliente: No</td>
+                  <td> <i class="fa fa-key"></i> Acceso a llaves: No </td>
 
-        <div class="col-md-4">
-            <h3 class="my-3">Descripción de la casa</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-            <h3 class="my-3">Project Details</h3>
-            <ul>
-                <li>Lorem Ipsum</li>
-                <li>Dolor Sit Amet</li>
-                <li>Consectetur</li>
-                <li>Adipiscing Elit</li>
-            </ul>
-        </div>
+               </tr>
 
-    </div>
-    <!-- /.row -->
+            </tbody>
+         </table>
+         <hr>
+         <h3 class="my-4">  <i class="fa fa-map-marker text-warning"></i> Ubicación</h3>
+          <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom ">
+            <agm-marker
+             [latitude]= "lat"
+             [longitude]="lng"
+             [label]="'A'">
+             
+            </agm-marker>
+          </agm-map>
 
-    <!-- Related Projects Row -->
-    <h3 class="my-4">Related Projects</h3>
 
-    <div class="row">
 
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
+      </div>
+      <!--Barra lateral-->
+      <div class="col-lg-4">
+         <h3 class="my-3"> <i class="fa fa-user"></i> Catalina Cano</h3>
+         <img  src="assets/img/cata.jpeg" height="auto" width="100%" align="center">
 
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
+         <h3 class="my-3"> <i class="fa fa-smile-o text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
+         <table class="table table-striped">
+            <tbody>
+               <tr>
+                  <td> <i class="fa fa-language"></i> Idiomas Hablados: Español </td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-spoon"></i> Habitos Alimenticios: Vegetarianos </td>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-angellist"></i> Religión: Cristianos</td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-american-sign-language-interpreting"></i> Consumo Drogas: No</td>
+               </tr>
+               <tr>
+                  <td> <i class="fa fa-glass"></i> Consumo Alcohol: No</td>
+               </tr>
 
-        <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#">
-                <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-            </a>
-        </div>
+            </tbody>
+         </table>
 
-    </div>
-    <!-- /.row -->
+         <hr>
+         <h3 class="my-4">  <i class="fa fa-warning text-danger"></i> Reglas del alojamiento</h3>
+          <div class="reglas">
 
+            <ol>
+              <li> Horario de llegada: 10:00 pm </li>
+              <li> Acceso de otras personas: No</li>
+              <li> Fiestas o eventos: No </li>
+              <li> Música a volumen: Moderado  </li>
+              <li> Ritos,exorcismos, orgias: No  </li>
+              <li> Consumo de alcohol: No  </li>
+              <li> Consumo de sustancias psicoactivas: No  </li>
+            </ol>
+          </div>
+          <hr>
+
+          <h3 class="my-4"><i class="fa fa-map-o"></i> Lugares de interés cercanos</h3>
+          <table class="table table-striped">
+             <tbody>
+                <tr>
+                   <td> <i class="fa fa-building-o"></i> Centros Comerciales: Si </td>
+                </tr>
+                <tr>
+                   <td> <i class="fa fa-university"></i> Museos: No </td>
+
+                </tr>
+                <tr>
+                   <td> <i class="fa fa-cutlery"></i> Restaurantes: Si </td>
+                </tr>
+                <tr>
+                   <td> <i class="fa fa-beer"></i> Bares: Si</td>
+                </tr>
+                <tr>
+                   <td> <i class="fa fa-plus"></i> Iglesias: Si</td>
+                </tr>
+                <tr>
+                   <td> <i class="fa fa-h-square"></i> Hospitales: Si</td>
+                </tr>
+             </tbody>
+          </table>
+          <hr>
+          Si quieres
+         <button class="btn btn-success btn-block"> <i class="fa fa-envelope"></i> Contactar</button>
+
+      </div>
+   </div>
+   <hr>
+   <!-- /.row -->
+
+
+   <!-- Related Projects Row -->
+   <h3 class="my-4"> <i class="fa fa-home text-primary"></i> Espacios del Alojamiento</h3>
+   <div class="row">
+      <div class="col-md-3 col-sm-6 mb-4">
+         <a href="#">
+         <img class="img-fluid" src="assets/img/sala.jpg" height="300px" width="500px" alt="">
+         </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+         <a href="#">
+         <img class="img-fluid" src="assets/img/banio.jpg" alt="">
+         </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+         <a href="#">
+         <img class="img-fluid" src="assets/img/cocina.jpg"alt="">
+         </a>
+      </div>
+      <div class="col-md-3 col-sm-6 mb-4">
+         <a href="#">
+         <img class="img-fluid" src="assets/img/habitacion.jpg" alt="">
+         </a>
+      </div>
+   </div>
+   <!-- /.row -->
 </div>
 <!-- /.container -->

@@ -5,6 +5,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
 import { MensajesComponent } from './components/mensajes/mensajes.component';
+import { AlojamientoComponent } from "./components/alojamiento/alojamiento.component";
 
 
 const APP_ROUTES: Routes = [
@@ -14,6 +15,7 @@ const APP_ROUTES: Routes = [
   { path: 'perfil', component: PerfilComponent},
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'mensajes', component: MensajesComponent},
+  { path: 'alojamiento', component: AlojamientoComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

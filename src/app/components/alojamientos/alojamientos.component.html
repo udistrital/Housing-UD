@@ -13,9 +13,10 @@
             <!--tipos de alojamiento-->
             <select class="form-control" id="tipoAlojamiento">
                <option>Casa Familiar</option>
-               <option>Apartamento</option>
                <option>Apartaestudio</option>
                <option>Duplex</option>
+               <option>Conjunto Residencial de Casas</option>
+               <option>Conjunto Residencial de Apartamentos</option>
             </select>
          </div>
          <div class=" col-md-3 col-xs-12">
@@ -78,9 +79,9 @@
                    <div class="col-lg-6">
                      <i class="fa fa-bed"></i> Individual
                    </div>
-                 </div>                
+                 </div>
                   <br>
-                  <button type="button" class="btn btn-success btn-block"name="button"> <i class="fa fa-search-plus"></i> Ver más...</button>
+                  <a class="btn btn-success btn-block" routerLink="/alojamiento" > <i class="fa fa-search-plus"></i> Ver más...</a>
                </div>
                <div class="card-footer small text-muted">
                   Publicado: {{alojamiento.publicacion}}

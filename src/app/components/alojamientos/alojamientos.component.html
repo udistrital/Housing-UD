@@ -63,14 +63,22 @@
                </div>
                <hr class="my-0">
                <div class="card-block small">
-                  <i class="fa fa-university"></i> Facultad de: {{alojamiento.habitantes}}
-                  <br>
-                  <i class="fa fa-users"></i> Habitantes: {{alojamiento.habitantes}} Personas
-                  <br>
-                  <i class="fa fa-coffee"></i> Tipo de alojamiento: {{alojamiento.habitantes}}
-                  <br>
-                  <i class="fa fa-bed"></i> Habitación: {{alojamiento.habitantes}}
-                  <br>
+                 <div class="row">
+                   <div class="col-lg-6">
+                     <i class="fa fa-university"></i> Ingeniería
+                   </div>
+                   <div class="col-lg-6">
+                     <i class="fa fa-users"></i> {{alojamiento.habitantes}}
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="col-lg-6">
+                     <i class="fa fa-coffee"></i> Casa Familiar
+                   </div>
+                   <div class="col-lg-6">
+                     <i class="fa fa-bed"></i> Individual
+                   </div>
+                 </div>                
                   <br>
                   <button type="button" class="btn btn-success btn-block"name="button"> <i class="fa fa-search-plus"></i> Ver más...</button>
                </div>

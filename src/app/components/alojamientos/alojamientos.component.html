@@ -1,0 +1,92 @@
+<div class="container-fluid">
+   <!-- Barra de Navegación -->
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#"> <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+      <li class="breadcrumb-item active"> <i class="fa fa-search" aria-hidden="true"></i> Buscar Alojamiento</li>
+   </ol>
+   <!--Filtros de Búsqueda -->
+   <div class="card my-4">
+      <h5 class="card-header"> <i class="fa fa-search" aria-hidden="true"></i> Filtros de Búsqueda  </h5>
+      <div class="row card-block">
+         <div class=" col-md-3 col-xs-12 ">
+            <label> <i class="fa fa-coffee" aria-hidden="true"></i> Tipo de Alojamiento</label>
+            <!--tipos de alojamiento-->
+            <select class="form-control" id="tipoAlojamiento">
+               <option>Casa Familiar</option>
+               <option>Apartamento</option>
+               <option>Apartaestudio</option>
+               <option>Duplex</option>
+            </select>
+         </div>
+         <div class=" col-md-3 col-xs-12">
+            <label> <i class="fa fa-university" aria-hidden="true"></i> Facultad</label>
+            <select class="form-control" id="facultad">
+               <!--Facultades-->
+               <option>Ingeniería</option>
+               <option>Artes(ASAB)</option>
+               <option>Tecnológica</option>
+               <option>Medio Ambiente</option>
+               <option>Ciencias y Educación</option>
+            </select>
+         </div>
+         <div class=" col-md-3 col-xs-12">
+            <label> <i class="fa fa-street-view" aria-hidden="true"></i> Tipo de perfil </label>
+            <select class="form-control" id="tipoPerfil">
+               <!--Perfil-->
+               <option>Mujer</option>
+               <option>Hombre</option>
+               <option>Cualquiera</option>
+            </select>
+         </div>
+         <div class=" col-md-3 col-xs-12">
+            <label> <i class="fa fa-bed" aria-hidden="true"></i> Habitación </label>
+            <select class="form-control" id="tipoHabitacion">
+               <option>Individual</option>
+               <option>Compartida</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <!--/Filtros de Búsqueda -->
+   <div class="row animated fadeIn">
+      <div class="col-lg-12">
+         <!-- Card Columns Example Social Feed -->
+         <div class="card-columns">
+            <!-- Example Social Card -->
+            <div class="card" *ngFor="let alojamiento of alojamientos | paginate: { itemsPerPage: 6, currentPage: p }">
+               <img class="card-img-top img-fluid w-100" [src]="alojamiento.img" alt="">
+               <div id="descripcion" class="card-block">
+                  <h6 class="card-title text-primary"> {{alojamiento.nombre}} </h6>
+                  <p  class="card-text small">
+                     {{alojamiento.descripcion}}
+                  </p>
+               </div>
+               <hr class="my-0">
+               <div class="card-block small">
+                  <i class="fa fa-briefcase"></i> {{alojamiento.intercambios}} Intencambios
+                  <br>
+                  <i class="fa fa-users"></i> {{alojamiento.habitantes}} Personas
+                  <br>
+                  <br>
+                  <button type="button" class="btn btn-success btn-block"name="button"> <i class="fa fa-search-plus"></i> Ver más...</button>
+               </div>
+               <div class="card-footer small text-muted">
+                  Publicado: {{alojamiento.publicacion}}
+               </div>
+            </div>
+            <!-- /Card Columns -->
+         </div>
+      </div>
+   </div>
+   <div id ="paginacion" class="row">
+      <pagination-controls (pageChange)="p = $event"
+         maxSize="10"
+         previousLabel="Anterior"
+         nextLabel="Siguiente"
+         screenReaderPaginationLabel="Paginación"
+         screenReaderPageLabel="Página"
+         screenReaderCurrentLabel="Página Actual">
+      </pagination-controls>
+   </div>
+</div>
+<!-- /.container-fluid -->

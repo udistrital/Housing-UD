@@ -1,0 +1,7 @@
+#paginacion{
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}

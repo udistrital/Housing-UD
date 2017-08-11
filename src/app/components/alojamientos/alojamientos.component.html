@@ -19,24 +19,43 @@
                <option>Conjunto Residencial de Apartamentos</option>
             </select>
          </div>
-         <div class=" col-md-3 col-xs-12">
-            <label> <i class="fa fa-university" aria-hidden="true"></i> Facultad</label>
-            <select class="form-control" id="facultad">
+         <div id="destino" class=" col-md-3 col-xs-12">
+            <label> <i class="fa fa-university" aria-hidden="true"></i> Facultad de destino</label>
+            <select class="form-control">
                <!--Facultades-->
-               <option>Ingeniería</option>
-               <option>Artes(ASAB)</option>
-               <option>Tecnológica</option>
-               <option>Medio Ambiente</option>
-               <option>Ciencias y Educación</option>
+               <optgroup label="Facultades">
+                  <option value="Artes(ASAB)">Artes(ASAB)</option>
+                  <option value="Ciencias y Educación">Ciencias y Educación</option>
+                  <option value="Ingeniería">Ingeniería</option>
+                  <option value="Medio Ambiente">Medio Ambiente</option>
+                  <option value="Tecnológica">Tecnológica</option>
+               </optgroup>
+               <!--Otras sedes-->
+               <optgroup label="Otras Sedes">
+                  <option value="Academia Luis A. Calvo">Academia Luis A. Calvo</option>
+                  <option value="Auduanilla de Paiba">Aduanilla de Paiba</option>
+                  <option value="Bosa">Bosa</option>
+                  <option value="Calle 34">Calle 34</option>
+                  <option value="CERI">CERI</option>
+                  <option value="CIDC">CIDC</option>
+                  <option value="IPAZUD">IPAZUD</option>
+                  <option value="IEIE">IEIE</option>
+               </optgroup>
+               <!--Sedes ILUD-->
+               <optgroup label="ILUD">
+                  <option value="i">Sede 1</option>
+                  <option value="i">Sede 2</option>
+                  <option value="i">Sede 3</option>
+               </optgroup>
             </select>
          </div>
          <div class=" col-md-3 col-xs-12">
-            <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan </label>
+            <label> <i class="fa fa-briefcase" aria-hidden="true"></i> Hospedan a</label>
             <select class="form-control" id="tipoPerfil">
                <!--Perfil-->
                <option>Mujer</option>
                <option>Hombre</option>
-               <option>Cualquiera</option>
+               <option>Indiferente</option>
             </select>
          </div>
          <div class=" col-md-3 col-xs-12">
@@ -64,22 +83,22 @@
                </div>
                <hr class="my-0">
                <div class="card-block small">
-                 <div class="row">
-                   <div class="col-lg-6">
-                     <i class="fa fa-university"></i> Ingeniería
-                   </div>
-                   <div class="col-lg-6">
-                     <i class="fa fa-users"></i> {{alojamiento.habitantes}}
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="col-lg-6">
-                     <i class="fa fa-info-circle"></i> Casa Familiar
-                   </div>
-                   <div class="col-lg-6">
-                     <i class="fa fa-bed"></i> Individual
-                   </div>
-                 </div>
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <i class="fa fa-university"></i> Ingeniería
+                     </div>
+                     <div class="col-lg-6">
+                        <i class="fa fa-users"></i> {{alojamiento.habitantes}}
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <i class="fa fa-info-circle"></i> Casa Familiar
+                     </div>
+                     <div class="col-lg-6">
+                        <i class="fa fa-bed"></i> Individual
+                     </div>
+                  </div>
                   <br>
                   <a class="btn btn-success btn-block" routerLink="/alojamiento" > <i class="fa fa-search-plus"></i> Ver más...</a>
                </div>

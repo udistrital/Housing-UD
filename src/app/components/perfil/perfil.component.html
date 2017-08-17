@@ -6,9 +6,9 @@
    </ol>
    <!-- Barra del Perfil-->
    <div class="row">
-      <div class="perfil col-lg-3 col-s-12 col-xs-12">
-         <div class="card" style="width: 14rem;">
-            <img class="card-img-top" [src]="usuario.img" alt="Card image cap" height="221px" width="221px">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-offset-12" >
+         <div class="card">
+            <img class="card-img-top text-center" [src]="usuario.img" alt="Card image cap" height="auto" width="100%">
             <div class="card-block">
                <h4 class="card-title">{{usuario.nombre}} {{usuario.apellido}}</h4>
                <hr>
@@ -16,9 +16,11 @@
                <span class="badge badge-pill badge-success"> {{usuario.facultad}}</span>
             </div>
          </div>
+         <br>
       </div>
+
       <!--Informacion del perfil-->
-      <div class=" info col-lg-9">
+      <div class="col-lg-9 col-md-12 col-sm-12 col-xs-offset-12">
          <informacion-perfil></informacion-perfil>
       </div>
    </div>

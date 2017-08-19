@@ -14,6 +14,8 @@ import { UsuarioService } from './services/usuario.service';
 //paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
 
+//Form wizard
+import { FormWizardModule } from 'angular2-wizard';
 
 //Modulo de mapas
 import { AgmCoreModule } from '@agm/core';
@@ -24,7 +26,6 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AlojamientosComponent } from './components/alojamientos/alojamientos.component';
 import { ModalInformacionComponent } from './components/shared/modal-informacion/modal-informacion.component';
-import { FormularioComponent } from './components/formulario/formulario.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
 import { MensajesComponent } from './components/mensajes/mensajes.component';
@@ -41,7 +42,6 @@ import { AlojamientoComponent } from './components/alojamiento/alojamiento.compo
     HomeComponent,
     AlojamientosComponent,
     ModalInformacionComponent,
-    FormularioComponent,
     PerfilComponent,
     PostulacionComponent,
     MensajesComponent,
@@ -54,7 +54,8 @@ import { AlojamientoComponent } from './components/alojamiento/alojamiento.compo
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB_8h8OFAoL5Z2HDgeH761GUwoadE_kttg'
     }),
-    APP_ROUTING
+    APP_ROUTING,
+    FormWizardModule
   ],
   providers: [
    AlojamientosService,

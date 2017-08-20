@@ -1,7 +1,7 @@
 <div class="container-fluid">
    <!-- Barra de Navegación -->
    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#"> <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/home']"> <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
       <li class="breadcrumb-item active"> <i class="fa fa-search" aria-hidden="true"></i> Buscar Alojamiento</li>
    </ol>
    <!--Filtros de Búsqueda -->
@@ -100,7 +100,7 @@
                      </div>
                   </div>
                   <br>
-                  <a class="btn btn-success btn-block" routerLink="/alojamiento" > <i class="fa fa-search-plus"></i> Ver más...</a>
+                  <a class="btn btn-success btn-block" [routerLink]="['/alojamiento']" > <i class="fa fa-search-plus"></i> Ver más...</a>
                </div>
                <div class="card-footer small text-muted">
                   Publicado: {{alojamiento.publicacion}}

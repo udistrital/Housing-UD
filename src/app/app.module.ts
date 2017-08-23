@@ -32,6 +32,7 @@ import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { InformacionPerfilComponent } from './components/shared/informacion-perfil/informacion-perfil.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { FormularioUsuariosComponent } from './components/formulario-usuarios/formulario-usuarios.component';
 
 
 
@@ -49,6 +50,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     InformacionPerfilComponent,
     AlojamientoComponent,
     InicioComponent,
+    FormularioUsuariosComponent,
   ],
   imports: [
     BrowserModule,

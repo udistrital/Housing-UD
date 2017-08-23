@@ -53,11 +53,14 @@ header.masthead .intro-text .skills {
 }
 
 footer {
-    color: #C9CBCB;
+    color: #777777;
 }
+
+
 
 footer h3 {
     margin-bottom: 30px;
+    color:#555555;
 }
 
 footer .footer-above {

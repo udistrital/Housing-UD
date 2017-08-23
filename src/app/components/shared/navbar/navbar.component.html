@@ -4,24 +4,24 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" [routerLink]="['home']" >Housing-UD</a>
+      <a class="navbar-brand" [routerLink]="['/home']" >Housing-UD</a>
       <div class="collapse navbar-collapse" id="navbarExample">
          <ul class="sidebar-nav navbar-nav">
             <!--Clase del activo-->
             <li class="nav-item" routerLinkActive="active">
-               <a class="nav-link" [routerLink]="['home']" ><i class="fa fa-fw fa-home"></i> Inicio</a>
+               <a class="nav-link" [routerLink]="['/home']" ><i class="fa fa-fw fa-home"></i> Inicio</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-               <a class="nav-link" [routerLink]="['alojamientos']" ><i class="fa fa-fw fa-search"></i> Buscar alojamiento</a>
+               <a class="nav-link" [routerLink]="['/alojamientos']" ><i class="fa fa-fw fa-search"></i> Buscar alojamiento</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-               <a class="nav-link" [routerLink]="['perfil']" ><i class="fa fa-fw fa-user"></i> Mi Perfil</a>
+               <a class="nav-link" [routerLink]="['/perfil']" ><i class="fa fa-fw fa-user"></i> Mi Perfil</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-               <a class="nav-link" [routerLink]="['postulacion']" ><i class="fa fa-fw fa-plus-square"></i> Postular un alojamiento</a>
+               <a class="nav-link" [routerLink]="['/postulacion']" ><i class="fa fa-fw fa-plus-square"></i> Postular un alojamiento</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-               <a class="nav-link" [routerLink]="['mensajes']"><i class="fa fa-fw fa-inbox"></i> Mensajes</a>
+               <a class="nav-link" [routerLink]="['/mensajes']"><i class="fa fa-fw fa-inbox"></i> Mensajes</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"><i class="fa fa-fw fa-info-circle"></i> Información</a>
@@ -97,7 +97,7 @@
                </form>
             </li>
             <li class="nav-item">
-               <a class="nav-link" [routerLink]="['perfil']"><i class="fa fa-fw fa-user"></i>{{usuario.rol}}</a>
+               <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>{{usuario.rol}}</a>
             </li>
             <li class="nav-item">
                <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Salir</a>

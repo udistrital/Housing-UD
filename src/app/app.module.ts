@@ -48,7 +48,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     MensajesComponent,
     InformacionPerfilComponent,
     AlojamientoComponent,
-    InicioComponent
+    InicioComponent,
   ],
   imports: [
     BrowserModule,

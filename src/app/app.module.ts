@@ -16,6 +16,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 //Form wizard
 import { FormWizardModule } from 'angular2-wizard';
+//Tooltip
+import {ToolTipModule} from 'angular2-tooltip'
 
 //Modulo de mapas
 import { AgmCoreModule } from '@agm/core';
@@ -59,7 +61,8 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
       apiKey: 'AIzaSyB_8h8OFAoL5Z2HDgeH761GUwoadE_kttg'
     }),
     APP_ROUTING,
-    FormWizardModule
+    FormWizardModule,
+    ToolTipModule
   ],
   providers: [
    AlojamientosService,

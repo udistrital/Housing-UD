@@ -6,6 +6,7 @@ import { PostulacionComponent } from './components/postulacion/postulacion.compo
 import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { AlojamientoComponent } from "./components/alojamiento/alojamiento.component";
 import { InicioComponent } from './components/inicio/inicio.component';
+import {FormularioUsuariosComponent} from './components/formulario-usuarios/formulario-usuarios.component';
 
 
 const APP_ROUTES: Routes = [
@@ -16,7 +17,10 @@ const APP_ROUTES: Routes = [
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'mensajes', component: MensajesComponent},
   { path: 'alojamiento', component: AlojamientoComponent},
+  { path: 'formulario-usuarios', component: FormularioUsuariosComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
+
+
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

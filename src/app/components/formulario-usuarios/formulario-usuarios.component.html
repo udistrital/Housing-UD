@@ -1,3 +1,120 @@
-<p>
-  formulario-usuarios works!
-</p>
+<div class="container">
+<div class="row">
+<div class="col-lg-3">
+  <ul class="list-group">
+  <li class="list-group-item active"> <i class="fa fa-info"> </i> Información</li>
+  <li class="list-group-item">Dapibus ac facilisis in</li>
+  <li class="list-group-item">Morbi leo risus</li>
+  <li class="list-group-item">Porta ac consectetur ac</li>
+  <li class="list-group-item">Vestibulum at eros</li>
+</ul>
+
+</div>
+
+<div class="col-lg-9">
+  <div class="jumbotron">
+
+    <form-wizard>
+  <wizard-step [title]="'Step1'">
+    <h1>Step1</h1>
+    <form #emailForm="ngForm">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"
+        >
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+    </form>
+  </wizard-step>
+  <wizard-step [title]="'Step2'" >
+    <h1>Step2</h1>
+  </wizard-step>
+  <wizard-step [title]="'Step3'">
+    <h1>Step3</h1>
+  </wizard-step>
+  <wizard-step [title]="'Step4'">
+    <div [ngSwitch]="isCompleted">
+      <div *ngSwitchDefault>
+        <h1>Step4</h1>
+      </div>
+      <div *ngSwitchCase="true">
+        <h4>Thank you! You have completed all the steps.</h4>
+      </div>
+    </div>
+  </wizard-step>
+</form-wizard>
+    <!--
+    <h2> <i class="fa fa-address-book"></i> Datos Básicos</h2>
+    <hr>
+     <div class="form-group row">
+        <label for="fechaNacimiento" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
+        <div class="col-lg-4 col-sm-8 col-xs-8">
+           <input class="form-control " type="text" readonly value="11/02/1980" id="fechaNacimiento">
+        </div>
+        <label for="sexo" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Sexo</label>
+        <div class="col-lg-4 col-sm-8 col-xs-8">
+           <input class="form-control" type="text" readonly  value="Masculino" id="sexo">
+        </div>
+     </div>
+
+     <div class="form-group row">
+        <label for="RH" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
+        <div class="col-lg-2 col-sm-8 col-xs-8">
+           <input class="form-control" type="text"  readonly value="A +" id="RH">
+        </div>
+        <label for="peso" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Peso</label>
+        <div class="col-lg-2 col-sm-8 col-xs-8">
+           <input class="form-control" type="text" readonly  value="78 Kg" id="peso">
+        </div>
+        <label for="altura" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Altura</label>
+        <div class="col-lg-2 col-sm-8 col-xs-8">
+           <input class="form-control" type="text"  readonly value="1.75 mts" id="altura">
+        </div>
+        <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Edad</label>
+        <div class="col-lg-2 col-sm-8 col-xs-8">
+           <input class="form-control" type="text"  readonly value="37 años" id="edad">
+        </div>
+     </div>
+
+      <hr>
+       <div class="form-group row">
+        <label for="universidadOrigen" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Universidad de Origen</label>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+           <input class="form-control" type="text"  readonly value="UNAM" id="universidadOrigen">
+        </div>
+     </div>
+     <div class="form-group row">
+        <label for="carrerar" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Carrera</label>
+        <div class="col-lg-8 col-sm-12- col-xs-12">
+           <input class="form-control" type="text"  readonly value="Ingenieria de Sistemas" id="carrera">
+        </div>
+     </div>
+     <div class="form-group row">
+        <label for="duracion" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Duración Movilidad</label>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+           <input class="form-control" type="text"  readonly value="2 semestres" id="duracion">
+        </div>
+     </div>
+     <hr>
+     <div class="form-group row">
+        <label for="correo" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico</label>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+           <input class="form-control" type="email"  readonly value="ceriUD@hotmail.com" id="example-number-input">
+        </div>
+     </div>
+     <div class="form-group row">
+        <label for="telefono" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Teléfono</label>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+           <input class="form-control" type="text"  readonly value="3101234567" id="telefono">
+        </div>
+     </div>
+     <div class="form-group row">
+        <label for="example-number-input" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Número Pasaporte</label>
+        <div class="col-lg-8 col-sm-12 col-xs-12">
+           <input class="form-control" type="text"  readonly value="345-564-3" id="example-number-input">
+        </div>
+     </div>-->
+  </div>
+</div>
+</div>
+</div>

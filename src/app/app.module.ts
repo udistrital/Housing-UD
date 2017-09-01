@@ -62,7 +62,9 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
     }),
     APP_ROUTING,
     FormWizardModule,
-    ToolTipModule
+    ToolTipModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
    AlojamientosService,

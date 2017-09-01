@@ -12,9 +12,9 @@ export class FormularioUsuariosComponent  {
 
   constructor() {
     this.forma= new FormGroup({
-    'nombres': new FormControl('Cris'),
-    'apellidos': new FormControl(),
-    'edad': new FormControl(),
+    'nombre': new FormControl('Cris',Validators.required),
+    'apellido': new FormControl('',Validators.required),
+    'correo': new FormControl('',[Validators.required,Validators.pattern("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")]),
   }) }
 
   guardarCambios(){

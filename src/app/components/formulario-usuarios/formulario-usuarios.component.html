@@ -11,125 +11,127 @@
         </ol>
          <div class="jumbotron">
             <h2 class="display-3"> <i class="fa fa-user-plus"></i> Registrate!</h2>
+              <form>
             <form-wizard>
               <!--Paso 1 DATOS BASICOS-->
                <wizard-step [title]="'Paso 1'">
-                  <h1> <i class="fa fa-address-book"></i> Datos Básicos</h1>
-                  <hr>
-                  <legend><i class="fa fa-user"></i> Datos Personales</legend>
-
-                  <div class="form-group row">
-
-                     <label for="nombres" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Nombres</label>
-                     <div class="col-lg-4 col-sm-8 col-xs-8">
-                        <input class="form-control " type="text"  placeholder="Nombres" id="nombres">
-                     </div>
-                     <label for="apellidos" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Apellidos</label>
-                     <div class="col-lg-4 col-sm-8 col-xs-8">
-                        <input class="form-control " type="text" placeholder="Apellidos" id="apellidos">
-                     </div>
-                  </div>
-
-                <div class="form-group row">
-                  <label for="fechaNacimiento" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
-                  <div class="col-lg-4 col-sm-8 col-xs-8">
-                     <input class="form-control" type="date" id="fechaNacimiento">
-                  </div>
-                  <label for="edad" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Edad</label>
-                  <div class="col-lg-4 col-sm-8 col-xs-8">
-                     <input class="form-control" type="text" readonly  value="Edad" id="edad">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="sexo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Sexo</label>
-                  <div class="col-lg-3 col-sm-8 col-xs-8">
-                    <select class="form-control" id="sexo">
-                      <option>Masculino</option>
-                      <option>Femenino</option>
-                      <option>Sin especificar</option>
-                    </select>
-                  </div>
-                  <label for="tipo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
-                  <div class="col-lg-2 col-sm-8 col-xs-8">
-                    <select class="form-control" id="tipo">
-                      <option>A</option>
-                      <option>B</option>
-                      <option>O</option>
-                      <option>AB</option>
-                    </select>
-                  </div>
-                  <label for="rh" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
-                  <div class="col-lg-2 col-sm-8 col-xs-8">
-                    <select class="form-control" id="rh">
-                      <option>+</option>
-                      <option>-</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                   <label for="peso" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Peso</label>
-                   <div class="col-lg-4 col-sm-8 col-xs-8">
-                      <input class="form-control " type="text"  placeholder="48 Kg" id="peso">
-                   </div>
-                   <label for="altura" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Altura</label>
-                   <div class="col-lg-4 col-sm-8 col-xs-8">
-                      <input class="form-control " type="text" placeholder="1.75 mts" id="altura">
-                   </div>
-                </div>
-              <hr>
-              <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
-              <div class="form-group row">
-                 <label for="universidadOrigen" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Universidad Origen</label>
-                 <div class="col-lg-4 col-sm-8 col-xs-8">
-                    <input class="form-control " type="text"  readonly="Universidad Distrital" id="universidadOrigen">
-                 </div>
-                 <label for="carrera" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Carrera</label>
-                 <div class="col-lg-4 col-sm-8 col-xs-8">
-                    <input class="form-control " type="text" placeholder="Ingenieria de sistemas" id="carrera">
-                 </div>
-              </div>
-
-              <div class="form-group row ">
-                 <label for="duracionMovilidad" class="col-lg-3  col-sm-4 col-xs-4 col-form-label">Duracion Movilidad</label>
-                 <select class="col-lg-3 form-control"  id="duracionMovilidad">
-                   <option>1 semestre</option>
-                   <option>2 semestres</option>
-                 </select>
-              </div>
-              <hr>
-              <legend><i class="fa fa-phone"></i> Contacto</legend>
-              <div class="form-group row">
-                 <label for="numeroTelefono" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Telefono</label>
-                 <div class="col-lg-3 col-sm-8 col-xs-8">
-                    <input class="form-control " type="text"  placeholder="321-345-6575" id="numeroTelefono">
-                 </div>
-                 <label for="numeroPasaporte" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Pasaporte</label>
-                 <div class="col-lg-3 col-sm-8 col-xs-8">
-                    <input class="form-control " type="text" placeholder="456-32-43" id="numeroPasaporte">
-                 </div>
-              </div>
-              <div class="form-group row">
-                <label for="correoElectronico" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Correo Electrónico</label>
-                <div class="col-lg-5 col-sm-8 col-xs-8 input-group">
-                   <span class="input-group-addon">@</span>
-                   <input class="form-control " type="email" placeholder="12345@gmail.com" id="correoElectronico">
-                </div>
-                </div>
-
-              <hr>
-              <legend><i class="fa fa-camera"></i> Imágen de Perfil</legend>
-
-
-
-
-
 
                </wizard-step>
                <!--Paso 2-->
                <wizard-step [title]="'Paso 2'" (onNext)="onStep2Next($event)">
                <h1>Paso 2</h1>
+               <h1> <i class="fa fa-address-book"></i> Datos Básicos</h1>
+               <hr>
+               <legend><i class="fa fa-user"></i> Datos Personales</legend>
+
+               <div class="form-group row">
+
+                  <label for="nombres" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Nombres</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text"  placeholder="Nombres" id="nombres">
+                  </div>
+                  <label for="apellidos" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Apellidos</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text" placeholder="Apellidos" id="apellidos">
+                  </div>
+               </div>
+
+             <div class="form-group row">
+               <label for="fechaNacimiento" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
+               <div class="col-lg-4 col-sm-8 col-xs-8">
+                  <input class="form-control" type="date" id="fechaNacimiento">
+               </div>
+               <label for="edad" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Edad</label>
+               <div class="col-lg-4 col-sm-8 col-xs-8">
+                  <input class="form-control" type="text" readonly  value="Edad" id="edad">
+               </div>
+             </div>
+
+             <div class="form-group row">
+               <label for="sexo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Sexo</label>
+               <div class="col-lg-3 col-sm-8 col-xs-8">
+                 <select class="form-control" id="sexo">
+                   <option>Masculino</option>
+                   <option>Femenino</option>
+                   <option>Sin especificar</option>
+                 </select>
+               </div>
+               <label for="tipo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
+               <div class="col-lg-2 col-sm-8 col-xs-8">
+                 <select class="form-control" id="tipo">
+                   <option>A</option>
+                   <option>B</option>
+                   <option>O</option>
+                   <option>AB</option>
+                 </select>
+               </div>
+               <label for="rh" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
+               <div class="col-lg-2 col-sm-8 col-xs-8">
+                 <select class="form-control" id="rh">
+                   <option>+</option>
+                   <option>-</option>
+                 </select>
+               </div>
+             </div>
+
+             <div class="form-group row">
+                <label for="peso" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Peso</label>
+                <div class="col-lg-4 col-sm-8 col-xs-8">
+                   <input class="form-control " type="text"  placeholder="48 Kg" id="peso">
+                </div>
+                <label for="altura" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Altura</label>
+                <div class="col-lg-4 col-sm-8 col-xs-8">
+                   <input class="form-control " type="text" placeholder="1.75 mts" id="altura">
+                </div>
+             </div>
+           <hr>
+           <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
+           <div class="form-group row">
+              <label for="universidadOrigen" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Universidad Origen</label>
+              <div class="col-lg-4 col-sm-8 col-xs-8">
+                 <input class="form-control " type="text"  readonly="Universidad Distrital" id="universidadOrigen">
+              </div>
+              <label for="carrera" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Carrera</label>
+              <div class="col-lg-4 col-sm-8 col-xs-8">
+                 <input class="form-control " type="text" placeholder="Ingenieria de sistemas" id="carrera">
+              </div>
+           </div>
+
+           <div class="form-group row ">
+              <label for="duracionMovilidad" class="col-lg-3  col-sm-4 col-xs-4 col-form-label">Duracion Movilidad</label>
+              <select class="col-lg-3 form-control"  id="duracionMovilidad">
+                <option>1 semestre</option>
+                <option>2 semestres</option>
+              </select>
+           </div>
+           <hr>
+           <legend><i class="fa fa-phone"></i> Contacto</legend>
+           <div class="form-group row">
+              <label for="numeroTelefono" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Telefono</label>
+              <div class="col-lg-3 col-sm-8 col-xs-8">
+                 <input class="form-control " type="text"  placeholder="321-345-6575" id="numeroTelefono">
+              </div>
+              <label for="numeroPasaporte" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Pasaporte</label>
+              <div class="col-lg-3 col-sm-8 col-xs-8">
+                 <input class="form-control " type="text" placeholder="456-32-43" id="numeroPasaporte">
+              </div>
+           </div>
+           <div class="form-group row">
+             <label for="correoElectronico" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Correo Electrónico</label>
+             <div class="col-lg-5 col-sm-8 col-xs-8 input-group">
+                <span class="input-group-addon">@</span>
+                <input class="form-control " type="email" placeholder="12345@gmail.com" id="correoElectronico">
+             </div>
+             </div>
+
+           <hr>
+           <legend><i class="fa fa-camera"></i> Imágen de Perfil</legend>
+
+
+
+
+
+
                </wizard-step>
                <!--Paso 3-->
                <wizard-step [title]="'Paso 3'" (onNext)="onStep3Next($event)">
@@ -140,6 +142,7 @@
                <h1>Paso 4</h1>
                </wizard-step>
             </form-wizard>
+            </form>
             <br>
             <div class= "form-group block-center">
                   <div class="col-lg-10 col-lg-offset-4">

@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 @Component({
   selector: 'app-formulario-usuarios',
   templateUrl: './formulario-usuarios.component.html',
   styleUrls: ['./formulario-usuarios.component.css']
 })
-export class FormularioUsuariosComponent implements OnInit {
+export class FormularioUsuariosComponent  {
 
-  constructor() { }
+ //formulario
+ forma: FormGroup;
 
-  ngOnInit() {
+  constructor() {
+    this.forma= new FormGroup({
+    'nombres': new FormControl('Cris'),
+    'apellidos': new FormControl(),
+    'edad': new FormControl(),
+  }) }
+
+  guardarCambios(){
+
   }
 
 }

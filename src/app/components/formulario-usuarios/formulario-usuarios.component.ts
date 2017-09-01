@@ -14,10 +14,12 @@ export class FormularioUsuariosComponent  {
     this.forma= new FormGroup({
     'nombre': new FormControl('Cris',Validators.required),
     'apellido': new FormControl('',Validators.required),
-    'correo': new FormControl('',[Validators.required,Validators.pattern("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")]),
+    'correo': new FormControl('',[Validators.required,Validators.pattern("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")])
   }) }
 
   guardarCambios(){
+    console.log(this.forma.value);
+    console.log(this.forma);
 
   }
 

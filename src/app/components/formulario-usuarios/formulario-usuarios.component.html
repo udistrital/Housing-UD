@@ -4,77 +4,94 @@
          <app-modal-informacion></app-modal-informacion>
       </div>
       <div class="col-lg-9">
-        <!-- Barra de Navegación -->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a [routerLink]="['/home']"> <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
-          <li class="breadcrumb-item active"> <i class="fa fa-user-plus" aria-hidden="true"></i>Registrarse</li>
-        </ol>
+         <!-- Barra de Navegación -->
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/home']"> <i class="fa fa-home" aria-hidden="true"></i> Inicio</a></li>
+            <li class="breadcrumb-item active"> <i class="fa fa-user-plus" aria-hidden="true"></i>Registrarse</li>
+         </ol>
          <div class="jumbotron">
             <h2 class="display-3"> <i class="fa fa-user-plus"></i> Registrate!</h2>
-              <form>
-            <form-wizard [formGroup]="forma" (ngSubmit)="guardarCambios()">
-              <!--Paso 1 DATOS BASICOS-->
-               <wizard-step [title]="'Paso 1'">
-                 <div>
 
- <div class="form-group row">
-   <label class="col-2 col-form-label">Nombre</label>
-   <div class="col-8">
+               <!--Paso 1 DATOS BASICOS-->
+        <form-wizard >
+        <wizard-step [title]="'Paso 2'" (onNext)="onStep2Next($event)">
+                  <form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+                  <div>
+                     <div class="form-group row">
+                        <label class="col-2 col-form-label">Nombre</label>
+                        <div class="col-8">
 
-     <input class="form-control"
-            type="text"
-            placeholder="Nombre"
-            formControlName="nombre">
-   </div>
- </div>
+                           <input class="form-control"
+                              type="text"
+                              placeholder="Nombre"
+                              formControlName="nombre">
+                        </div>
+                     </div>
 
- <div class="form-group row">
-   <label class="col-2 col-form-label">Apellido</label>
-   <div class="col-8">
+                     <div class="form-group row">
+                        <label class="col-2 col-form-label">Apellido</label>
+                        <div class="col-8">
+                           <input class="form-control"
+                              type="text"
+                              placeholder="Apellido"
+                              formControlName="apellido">
+                        </div>
+                     </div>
+                  </div>
 
-     <input class="form-control"
-            type="text"
-            placeholder="Apellido"
-            formControlName="apellido">
-   </div>
- </div>
+                  <div class="form-group row">
+                     <label class="col-2 col-form-label">Correo</label>
+                     <div class="col-md-8">
+                        <input class="form-control"
+                           type="email"
+                           placeholder="Correo electrónico"
+                           formControlName="correo">
+                     </div>
+                  </div>
 
-</div>
+                  <div class="form-group row">
+                     <label class="col-2 col-form-label">&nbsp;</label>
+                     <div class="input-group col-md-8">
+                        <button type="submit" class="btn btn-outline-primary">
+                        Guardar
+                        </button>
+                     </div>
+                  </div>
+                  {{forma.valid}}
+                  </form>
+                </wizard-step>
+             </form-wizard>
 
-<div class="form-group row">
- <label class="col-2 col-form-label">Correo</label>
- <div class="col-md-8">
-
-   <input class="form-control"
-          type="email"
-          placeholder="Correo electrónico"
-          formControlName="correo">
- </div>
-</div>
 
 
 
-<div class="form-group row">
- <label class="col-2 col-form-label">&nbsp;</label>
- <div class="input-group col-md-8">
-   <button type="submit" class="btn btn-outline-primary">
-     Guardar
-   </button>
- </div>
-</div>
- {{forma.valid}}
-                 
 
-               </wizard-step>
-               <!--Paso 2-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--
+               <form-wizard >
+
                <wizard-step [title]="'Paso 2'" (onNext)="onStep2Next($event)">
                <h1>Paso 2</h1>
                <h1> <i class="fa fa-address-book"></i> Datos Básicos</h1>
                <hr>
                <legend><i class="fa fa-user"></i> Datos Personales</legend>
-
                <div class="form-group row">
-
                   <label for="nombres" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Nombres</label>
                   <div class="col-lg-4 col-sm-8 col-xs-8">
                      <input class="form-control " type="text"  placeholder="Nombres" id="nombres">
@@ -84,121 +101,109 @@
                      <input class="form-control " type="text" placeholder="Apellidos" id="apellidos">
                   </div>
                </div>
-
-             <div class="form-group row">
-               <label for="fechaNacimiento" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
-               <div class="col-lg-4 col-sm-8 col-xs-8">
-                  <input class="form-control" type="date" id="fechaNacimiento">
+               <div class="form-group row">
+                  <label for="fechaNacimiento" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control" type="date" id="fechaNacimiento">
+                  </div>
+                  <label for="edad" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Edad</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control" type="text" readonly  value="Edad" id="edad">
+                  </div>
                </div>
-               <label for="edad" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Edad</label>
-               <div class="col-lg-4 col-sm-8 col-xs-8">
-                  <input class="form-control" type="text" readonly  value="Edad" id="edad">
+               <div class="form-group row">
+                  <label for="sexo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Sexo</label>
+                  <div class="col-lg-3 col-sm-8 col-xs-8">
+                     <select class="form-control" id="sexo">
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <option>Sin especificar</option>
+                     </select>
+                  </div>
+                  <label for="tipo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
+                  <div class="col-lg-2 col-sm-8 col-xs-8">
+                     <select class="form-control" id="tipo">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>O</option>
+                        <option>AB</option>
+                     </select>
+                  </div>
+                  <label for="rh" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
+                  <div class="col-lg-2 col-sm-8 col-xs-8">
+                     <select class="form-control" id="rh">
+                        <option>+</option>
+                        <option>-</option>
+                     </select>
+                  </div>
                </div>
-             </div>
-
-             <div class="form-group row">
-               <label for="sexo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Sexo</label>
-               <div class="col-lg-3 col-sm-8 col-xs-8">
-                 <select class="form-control" id="sexo">
-                   <option>Masculino</option>
-                   <option>Femenino</option>
-                   <option>Sin especificar</option>
-                 </select>
+               <div class="form-group row">
+                  <label for="peso" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Peso</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text"  placeholder="48 Kg" id="peso">
+                  </div>
+                  <label for="altura" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Altura</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text" placeholder="1.75 mts" id="altura">
+                  </div>
                </div>
-               <label for="tipo" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
-               <div class="col-lg-2 col-sm-8 col-xs-8">
-                 <select class="form-control" id="tipo">
-                   <option>A</option>
-                   <option>B</option>
-                   <option>O</option>
-                   <option>AB</option>
-                 </select>
+               <hr>
+               <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
+               <div class="form-group row">
+                  <label for="universidadOrigen" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Universidad Origen</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text"  readonly="Universidad Distrital" id="universidadOrigen">
+                  </div>
+                  <label for="carrera" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Carrera</label>
+                  <div class="col-lg-4 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text" placeholder="Ingenieria de sistemas" id="carrera">
+                  </div>
                </div>
-               <label for="rh" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
-               <div class="col-lg-2 col-sm-8 col-xs-8">
-                 <select class="form-control" id="rh">
-                   <option>+</option>
-                   <option>-</option>
-                 </select>
+               <div class="form-group row ">
+                  <label for="duracionMovilidad" class="col-lg-3  col-sm-4 col-xs-4 col-form-label">Duracion Movilidad</label>
+                  <select class="col-lg-3 form-control"  id="duracionMovilidad">
+                     <option>1 semestre</option>
+                     <option>2 semestres</option>
+                  </select>
                </div>
-             </div>
-
-             <div class="form-group row">
-                <label for="peso" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Peso</label>
-                <div class="col-lg-4 col-sm-8 col-xs-8">
-                   <input class="form-control " type="text"  placeholder="48 Kg" id="peso">
-                </div>
-                <label for="altura" class="col-lg-2 col-sm-4 col-xs-4 col-form-label">Altura</label>
-                <div class="col-lg-4 col-sm-8 col-xs-8">
-                   <input class="form-control " type="text" placeholder="1.75 mts" id="altura">
-                </div>
-             </div>
-           <hr>
-           <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
-           <div class="form-group row">
-              <label for="universidadOrigen" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Universidad Origen</label>
-              <div class="col-lg-4 col-sm-8 col-xs-8">
-                 <input class="form-control " type="text"  readonly="Universidad Distrital" id="universidadOrigen">
-              </div>
-              <label for="carrera" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Carrera</label>
-              <div class="col-lg-4 col-sm-8 col-xs-8">
-                 <input class="form-control " type="text" placeholder="Ingenieria de sistemas" id="carrera">
-              </div>
-           </div>
-
-           <div class="form-group row ">
-              <label for="duracionMovilidad" class="col-lg-3  col-sm-4 col-xs-4 col-form-label">Duracion Movilidad</label>
-              <select class="col-lg-3 form-control"  id="duracionMovilidad">
-                <option>1 semestre</option>
-                <option>2 semestres</option>
-              </select>
-           </div>
-           <hr>
-           <legend><i class="fa fa-phone"></i> Contacto</legend>
-           <div class="form-group row">
-              <label for="numeroTelefono" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Telefono</label>
-              <div class="col-lg-3 col-sm-8 col-xs-8">
-                 <input class="form-control " type="text"  placeholder="321-345-6575" id="numeroTelefono">
-              </div>
-              <label for="numeroPasaporte" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Pasaporte</label>
-              <div class="col-lg-3 col-sm-8 col-xs-8">
-                 <input class="form-control " type="text" placeholder="456-32-43" id="numeroPasaporte">
-              </div>
-           </div>
-           <div class="form-group row">
-             <label for="correoElectronico" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Correo Electrónico</label>
-             <div class="col-lg-5 col-sm-8 col-xs-8 input-group">
-                <span class="input-group-addon">@</span>
-                <input class="form-control " type="email" placeholder="12345@gmail.com" id="correoElectronico">
-             </div>
-             </div>
-
-           <hr>
-           <legend><i class="fa fa-camera"></i> Imágen de Perfil</legend>
-
-
-
-
-
-
+               <hr>
+               <legend><i class="fa fa-phone"></i> Contacto</legend>
+               <div class="form-group row">
+                  <label for="numeroTelefono" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Telefono</label>
+                  <div class="col-lg-3 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text"  placeholder="321-345-6575" id="numeroTelefono">
+                  </div>
+                  <label for="numeroPasaporte" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Numero Pasaporte</label>
+                  <div class="col-lg-3 col-sm-8 col-xs-8">
+                     <input class="form-control " type="text" placeholder="456-32-43" id="numeroPasaporte">
+                  </div>
+               </div>
+               <div class="form-group row">
+                  <label for="correoElectronico" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Correo Electrónico</label>
+                  <div class="col-lg-5 col-sm-8 col-xs-8 input-group">
+                     <span class="input-group-addon">@</span>
+                     <input class="form-control " type="email" placeholder="12345@gmail.com" id="correoElectronico">
+                  </div>
+               </div>
+               <hr>
+               <legend><i class="fa fa-camera"></i> Imágen de Perfil</legend>
                </wizard-step>
-               <!--Paso 3-->
+
                <wizard-step [title]="'Paso 3'" (onNext)="onStep3Next($event)">
                <h1>Paso 3</h1>
                </wizard-step>
-               <!--Paso 4-->
+
                <wizard-step [title]="'Paso 4'" (onNext)="onStep4Next($event)">
                <h1>Paso 4</h1>
                </wizard-step>
-            </form-wizard>
-            </form>
+            </form-wizard>-->
             <br>
             <div class= "form-group block-center">
-                  <div class="col-lg-10 col-lg-offset-4">
-                    <button type="reset" class="btn btn-default">  Cancelar</button>
-                    <button type="submit" class="btn btn-success">  Enviar</button>
-                  </div>
-                </div>
+               <div class="col-lg-10 col-lg-offset-4">
+                  <button type="reset" class="btn btn-default">  Cancelar</button>
+                  <button type="submit" class="btn btn-success">  Enviar</button>
+               </div>
+            </div>
          </div>
       </div>
    </div>

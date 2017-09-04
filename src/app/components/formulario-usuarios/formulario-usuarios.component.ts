@@ -106,14 +106,27 @@ carreras: Object[]=[
     })
     }
 
+
  validarUniversidad(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
-   
+
     if(controlUniversidadDestino.value === "Universidad Distrital Francisco José de Caldas"){
       return {
         validarUniversidad:true
       }
     }
        return null;
+     }
+
+     validar(arg1:FormControl, arg2:FormControl):void{
+       if(arg1.value===arg2.value){
+         //arg2.setValue('');
+         arg2.reset();
+         //return true;
+       }
+      // return false;
+
+
+
      }
 
   guardarCambios():void{

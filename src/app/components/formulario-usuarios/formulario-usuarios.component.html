@@ -27,7 +27,7 @@
                                     placeholder="Nombres"
                                     formControlName="nombres">
                                 <div *ngIf="forma.get('nombreCompleto.nombres').errors?.minlength"
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Por lo menos 3 caracteres.
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                     placeholder="Apellidos"
                                     formControlName="apellidos">
                                 <div *ngIf="forma.get('nombreCompleto.apellidos').errors?.minlength"
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Por lo menos 3 caracteres.
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="col-9">
                                 <input class="form-control " type="number"  placeholder="180" id="altura" formControlName="altura">
                                 <div *ngIf="forma.get('talla.altura').errors?.min || forma.get('talla.altura').errors?.max "
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Entre 1 y 250
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             <div class="col-9">
                                 <input class="form-control " type="number"  placeholder="70" id="peso" formControlName="peso">
                                 <div *ngIf="forma.get('talla.peso').errors?.min || forma.get('talla.peso').errors?.max "
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Entre 1 y 250
                                 </div>
                             </div>
@@ -142,8 +142,8 @@
                                     <select class="form-control" formControlName="universidadDestino">
                                     <option [ngValue]="destino" *ngFor="let destino of universidades">{{destino.nombre}}</option>
                                     </select>
-                                    <div *ngIf="forma.get('movilidad.universidadOrigen').value === forma.get('movilidad.universidadDestino').value" class="form-control-feedback">
-                                      Selecciona otra universidad
+                                    <div  *ngIf=" validar(forma.get('movilidad.universidadOrigen'),forma.get('movilidad.universidadDestino')) " class="form-control-feedback alert alert-danger">
+                                          Seleccione otra universidad
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@
                                         placeholder="311-000-00-00"
                                         formControlName="telefono">
                                     <div *ngIf="forma.get('contacto.telefono').errors?.minlength"
-                                        class="form-control-feedback">
+                                        class="form-control-feedback alert alert-danger">
                                         Más de 6 y menos de 15 dígitos
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@
                                     type="email"
                                     placeholder="abc@housin.com"
                                     formControlName="correo">
-                                <div *ngIf="forma.get('contacto.correo').errors?.pattern" class="text-danger"> &nbsp; Obligatorio usar  @  y . </div>
+                                <div *ngIf="forma.get('contacto.correo').errors?.pattern" class="form-control-feedback alert alert-danger"> &nbsp; Obligatorio usar  @  y . </div>
                             </div>
                         </div>
                     </div>

@@ -47,17 +47,8 @@ movilidades:  Object[]=[
   }
 ]
 
-carreras: Object[]=[
-  {
-    nombreCarrera:"Ingeniería de Sistemas",
-  },
-  {
-    nombreCarrera:"Ingeniería Civil",
-  },
-  {
-    nombreCarrera:"Ingeniería Industrial",
-  },
-]
+paises=[]
+
 
   constructor(private router: Router) {
      }
@@ -105,6 +96,7 @@ carreras: Object[]=[
       this.forma.controls['universidadDestino'].setValidators([
         Validators.required,
         this.validarUniversidadDestino.bind( this.forma )
+
       ]),
       this.forma.controls['universidadOrigen'].setValidators([
         Validators.required,

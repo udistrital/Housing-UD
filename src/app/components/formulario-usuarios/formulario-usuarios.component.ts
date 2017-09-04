@@ -23,15 +23,18 @@ usuario:Object = {
 universidades: Object[] = [
   {
     nombre: "Universidad Distrital Francisco José de Caldas",
-    pais: "Colombia"
+    pais: "Colombia",
+    carreras:["Ingeniería de Sistemas", "Industrial","Danzas"]
   },
   {
     nombre: "Universidad de la Plata",
-    pais: "Argentina"
+    pais: "Argentina",
+    carreras:["Catastral", "Ambiental","Arte"]
   },
   {
     nombre: "Universidad Nacional Autónoma de México",
-    pais: "México"
+    pais: "México",
+    carreras:["Electrica", "Electrónica","Civil"]
   }
 ];
 
@@ -86,7 +89,7 @@ carreras: Object[]=[
       {
         'universidadOrigen': new FormControl('',Validators.required),
         'paisOrigen': new FormControl('',Validators.required),
-        'universidadDestino': new FormControl('',Validators.required),
+        'universidadDestino': new FormControl('',[Validators.required,this.validarUniversidad]),
         'paisDestino': new FormControl('',Validators.required),
         'carrera': new FormControl('',Validators.required),
         'duracionMovilidad': new FormControl('',Validators.required),
@@ -103,18 +106,25 @@ carreras: Object[]=[
     })
     }
 
+ validarUniversidad(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
+   
+    if(controlUniversidadDestino.value === "Universidad Distrital Francisco José de Caldas"){
+      return {
+        validarUniversidad:true
+      }
+    }
+       return null;
+     }
+
   guardarCambios():void{
     console.log(this.forma.value);
     console.log(this.forma);
+    //console.log(this.forma.controls['movilidad.universidadOrigen'].value);
 
-  }
-
-  calcularEdad():number{
-    //console.log(this.forma.get('nacimiento.fechaNacimiento').value);
-      return Math.floor(Math.random() * 30) + 1 ;
   }
 
   regresar(){
+       this.forma.reset();
        this.router.navigate(['/landing']);
    }
 

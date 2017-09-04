@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
-import {Universidad} from '../../interfaces/universidad.interface';
-import {UniversidadesService} from '../../services/universidades.service';
+import { Universidad } from '../../interfaces/universidad.interface';
+import { UniversidadesService } from '../../services/universidades.service';
 
 @Component({
   selector: 'app-formulario-usuarios',
@@ -22,27 +22,7 @@ usuario:Object = {
   fechaNacimiento:"2017-09-04"
 }
 
-<<<<<<< HEAD
-=======
-universidades: Object[] = [
-  {
-    nombre: "Universidad Distrital Francisco José de Caldas",
-    pais: "Colombia",
-    carreras:["Ingeniería de Sistemas", "Industrial","Danzas"]
-  },
-  {
-    nombre: "Universidad de la Plata",
-    pais: "Argentina",
-    carreras:["Catastral", "Ambiental","Arte"]
-  },
-  {
-    nombre: "Universidad Nacional Autónoma de México",
-    pais: "México",
-    carreras:["Electrica", "Electrónica","Civil"]
-  }
-];
 
->>>>>>> aa9b54672beec73bc7c6a9f5bd1ca395e6e21b95
 movilidades:  Object[]=[
   {
     duracion:"6 Meses",
@@ -51,23 +31,6 @@ movilidades:  Object[]=[
     duracion:"12 Meses",
   }
 ]
-<<<<<<< HEAD
-carreras: Object[]=[
-  {
-    nombreCarrera:"Ingeniería de Sistemas",
-  },
-  {
-    nombreCarrera:"Ingeniería Civil",
-  },
-  {
-    nombreCarrera:"Ingeniería Industrial",
-  },
-]
-=======
-
-paises=[]
-
->>>>>>> aa9b54672beec73bc7c6a9f5bd1ca395e6e21b95
 
 universidades:Universidad[]=[];
 
@@ -119,41 +82,13 @@ universidades:Universidad[]=[];
       this.forma.controls['universidadDestino'].setValidators([
         Validators.required,
         this.validarUniversidadDestino.bind( this.forma )
-<<<<<<< HEAD
-=======
 
->>>>>>> aa9b54672beec73bc7c6a9f5bd1ca395e6e21b95
       ]),
       this.forma.controls['universidadOrigen'].setValidators([
         Validators.required,
         this.validarUniversidadOrigen.bind( this.forma )
       ])
-<<<<<<< HEAD
-=======
     }
-
-
- validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
-   let forma: any = this;
-    if(controlUniversidadDestino.value === forma.controls['universidadOrigen'].value ){
-      return {
-        validarUniversidad:true
-      }
->>>>>>> aa9b54672beec73bc7c6a9f5bd1ca395e6e21b95
-    }
-       return null;
-     }
-
-     validarUniversidadOrigen(controlUniversidadOrigen:FormControl):{[falla:string]:boolean}{
-       let forma: any = this;
-        if(controlUniversidadOrigen.value === forma.controls['universidadDestino'].value ){
-          return {
-            validarUniversidad:true
-          }
-        }
-           return null;
-         }
-
 
  validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
    let forma: any = this;

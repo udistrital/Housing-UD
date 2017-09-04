@@ -85,17 +85,14 @@ carreras: Object[]=[
         'peso': new FormControl('',[Validators.required,Validators.min(1),Validators.max(250)]),
       }
     ),
-    'movilidad': new FormGroup(
-      {
-        'universidadOrigen': new FormControl('',Validators.required),
+
+        'universidadOrigen': new FormControl(),
         'paisOrigen': new FormControl('',Validators.required),
-        'universidadDestino': new FormControl('',[Validators.required,this.validarUniversidad]),
+        'universidadDestino': new FormControl(),
         'paisDestino': new FormControl('',Validators.required),
         'carrera': new FormControl('',Validators.required),
         'duracionMovilidad': new FormControl('',Validators.required),
-      }
-    ),
-    'contacto': new FormGroup(
+        'contacto': new FormGroup(
       {
         'indicativo': new FormControl('',Validators.required),
         'telefono': new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(15)]),
@@ -104,12 +101,21 @@ carreras: Object[]=[
     )
 
     })
+
+      this.forma.controls['universidadDestino'].setValidators([
+        Validators.required,
+        this.validarUniversidadDestino.bind( this.forma )
+      ]),
+      this.forma.controls['universidadOrigen'].setValidators([
+        Validators.required,
+        this.validarUniversidadOrigen.bind( this.forma )
+      ])
     }
 
 
- validarUniversidad(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
-
-    if(controlUniversidadDestino.value === "Universidad Distrital Francisco José de Caldas"){
+ validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
+   let forma: any = this;
+    if(controlUniversidadDestino.value === forma.controls['universidadOrigen'].value ){
       return {
         validarUniversidad:true
       }
@@ -117,23 +123,20 @@ carreras: Object[]=[
        return null;
      }
 
-     validar(arg1:FormControl, arg2:FormControl):void{
-       if(arg1.value===arg2.value){
-         //arg2.setValue('');
-         arg2.reset();
-         //return true;
-       }
-      // return false;
-
-
-
-     }
+     validarUniversidadOrigen(controlUniversidadOrigen:FormControl):{[falla:string]:boolean}{
+       let forma: any = this;
+        if(controlUniversidadOrigen.value === forma.controls['universidadDestino'].value ){
+          return {
+            validarUniversidad:true
+          }
+        }
+           return null;
+         }
 
   guardarCambios():void{
     console.log(this.forma.value);
     console.log(this.forma);
     //console.log(this.forma.controls['movilidad.universidadOrigen'].value);
-
   }
 
   regresar(){

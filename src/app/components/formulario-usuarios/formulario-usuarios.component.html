@@ -116,9 +116,9 @@
                     </div>
                     <hr>
                     <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
-                    <div formGroupName="movilidad">
+
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.universidadOrigen').valid, 'has-success': forma.get('movilidad.universidadOrigen').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('universidadOrigen').valid, 'has-success': forma.get('universidadOrigen').valid }">
                                 <label class="col-4 col-form-label">Universidad Origen</label>
                                 <div class="col-8">
                                     <select class="form-control"  formControlName="universidadOrigen">
@@ -126,7 +126,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.paisOrigen').valid, 'has-success': forma.get('movilidad.paisOrigen').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('paisOrigen').valid, 'has-success': forma.get('paisOrigen').valid }">
                                 <label class="col-3 col-form-label">País Origen</label>
                                 <div class="col-9">
                                     <select class="form-control"  formControlName="paisOrigen">
@@ -136,18 +136,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.universidadDestino').valid, 'has-success': forma.get('movilidad.universidadDestino').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('universidadDestino').valid, 'has-success': forma.get('universidadDestino').valid }">
                                 <label class="col-4 col-form-label">Universidad Destino</label>
                                 <div class="col-8">
                                     <select class="form-control" formControlName="universidadDestino">
                                     <option [ngValue]="destino" *ngFor="let destino of universidades">{{destino.nombre}}</option>
-                                    </select>
-                                    <div  *ngIf=" validar(forma.get('movilidad.universidadOrigen'),forma.get('movilidad.universidadDestino')) " class="form-control-feedback alert alert-danger">
-                                          Seleccione otra universidad
-                                    </div>
+                                    </select>                                    
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.paisDestino').valid, 'has-success': forma.get('movilidad.paisDestino').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('paisDestino').valid, 'has-success': forma.get('paisDestino').valid }">
                                 <label class="col-3 col-form-label">País Destino</label>
                                 <div class="col-9">
                                     <select class="form-control"  formControlName="paisDestino">
@@ -157,7 +154,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.carrera').valid, 'has-success': forma.get('movilidad.carrera').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('carrera').valid, 'has-success': forma.get('carrera').valid }">
                                 <label class="col-4 col-form-label">Carrera</label>
                                 <div class="col-8">
                                     <select class="form-control"  formControlName="carrera">
@@ -165,7 +162,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.duracionMovilidad').valid, 'has-success': forma.get('movilidad.duracionMovilidad').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('duracionMovilidad').valid, 'has-success': forma.get('duracionMovilidad').valid }">
                                 <label class="col-4 col-form-label">Duración Movilidad</label>
                                 <div class="col-8">
                                     <select class="form-control"  formControlName="duracionMovilidad">
@@ -174,7 +171,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                     <hr>
                     <legend><i class="fa fa-phone"></i> Contacto</legend>
                     <div formGroupName="contacto">

@@ -27,7 +27,7 @@
                                     placeholder="Nombres"
                                     formControlName="nombres">
                                 <div *ngIf="forma.get('nombreCompleto.nombres').errors?.minlength"
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Por lo menos 3 caracteres.
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                     placeholder="Apellidos"
                                     formControlName="apellidos">
                                 <div *ngIf="forma.get('nombreCompleto.apellidos').errors?.minlength"
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Por lo menos 3 caracteres.
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                             <div class="col-9">
                                 <input class="form-control " type="number"  placeholder="180" id="altura" formControlName="altura">
                                 <div *ngIf="forma.get('talla.altura').errors?.min || forma.get('talla.altura').errors?.max "
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Entre 1 y 250
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             <div class="col-9">
                                 <input class="form-control " type="number"  placeholder="70" id="peso" formControlName="peso">
                                 <div *ngIf="forma.get('talla.peso').errors?.min || forma.get('talla.peso').errors?.max "
-                                    class="form-control-feedback">
+                                    class="form-control-feedback alert alert-danger">
                                     Entre 1 y 250
                                 </div>
                             </div>
@@ -116,56 +116,59 @@
                     </div>
                     <hr>
                     <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
-                    <div formGroupName="movilidad">
+
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.universidadOrigen').valid, 'has-success': forma.get('movilidad.universidadOrigen').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('universidadOrigen').valid, 'has-success': forma.get('universidadOrigen').valid }">
                                 <label class="col-4 col-form-label">Universidad Origen</label>
                                 <div class="col-8">
-                                    <select class="form-control"  formControlName="universidadOrigen">
-                                    <option [ngValue]="origen" *ngFor="let origen of universidades">{{origen.nombre}}</option>
+                                    <select class="form-control"  formControlName="universidadOrigen" (change)="buscarPaisOrigen()">
+                                    <option [ngValue]="origen" *ngFor="let origen of universidades" >{{origen.nombre}}</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.paisOrigen').valid, 'has-success': forma.get('movilidad.paisOrigen').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('paisOrigen').valid, 'has-success': forma.get('paisOrigen').valid }">
                                 <label class="col-3 col-form-label">País Origen</label>
                                 <div class="col-9">
-                                    <select class="form-control"  formControlName="paisOrigen">
-                                    <option [ngValue]="paisOrigen" *ngFor="let paisOrigen of universidades">{{paisOrigen.pais}}</option>
-                                    </select>
+
+                                      <input class="form-control"
+                                          type="text"
+                                          placeholder="Origen"
+                                          readonly
+                                          formControlName="paisOrigen">
+
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.universidadDestino').valid, 'has-success': forma.get('movilidad.universidadDestino').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('universidadDestino').valid, 'has-success': forma.get('universidadDestino').valid }">
                                 <label class="col-4 col-form-label">Universidad Destino</label>
                                 <div class="col-8">
                                     <select class="form-control" formControlName="universidadDestino">
                                     <option [ngValue]="destino" *ngFor="let destino of universidades">{{destino.nombre}}</option>
                                     </select>
-                                    <div *ngIf="forma.get('movilidad.universidadOrigen').value === forma.get('movilidad.universidadDestino').value" class="form-control-feedback">
-                                      Selecciona otra universidad
-                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.paisDestino').valid, 'has-success': forma.get('movilidad.paisDestino').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('paisDestino').valid, 'has-success': forma.get('paisDestino').valid }">
                                 <label class="col-3 col-form-label">País Destino</label>
                                 <div class="col-9">
-                                    <select class="form-control"  formControlName="paisDestino">
-                                    <option [ngValue]="paisDestino" *ngFor="let paisDestino of universidades">{{paisDestino.pais}}</option>
-                                    </select>
+                                  <input class="form-control"
+                                      type="text"
+                                      placeholder="Destino"
+                                      readonly
+                                      formControlName="paisDestino">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.carrera').valid, 'has-success': forma.get('movilidad.carrera').valid }">
+                            <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('carrera').valid, 'has-success': forma.get('carrera').valid }">
                                 <label class="col-4 col-form-label">Carrera</label>
                                 <div class="col-8">
                                     <select class="form-control"  formControlName="carrera">
-                                    <option [ngValue]="uc" *ngFor="let uc of carreras">{{uc.nombreCarrera}}</option>
+                                    <option [ngValue]="i" *ngFor="let carrera of universidades; let i = index ">{{carrera.carreras[i]}}</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('movilidad.duracionMovilidad').valid, 'has-success': forma.get('movilidad.duracionMovilidad').valid }">
+                            <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('duracionMovilidad').valid, 'has-success': forma.get('duracionMovilidad').valid }">
                                 <label class="col-4 col-form-label">Duración Movilidad</label>
                                 <div class="col-8">
                                     <select class="form-control"  formControlName="duracionMovilidad">
@@ -174,7 +177,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+
                     <hr>
                     <legend><i class="fa fa-phone"></i> Contacto</legend>
                     <div formGroupName="contacto">
@@ -198,7 +201,7 @@
                                         placeholder="311-000-00-00"
                                         formControlName="telefono">
                                     <div *ngIf="forma.get('contacto.telefono').errors?.minlength"
-                                        class="form-control-feedback">
+                                        class="form-control-feedback alert alert-danger">
                                         Más de 6 y menos de 15 dígitos
                                     </div>
                                 </div>
@@ -212,7 +215,7 @@
                                     type="email"
                                     placeholder="abc@housin.com"
                                     formControlName="correo">
-                                <div *ngIf="forma.get('contacto.correo').errors?.pattern" class="text-danger"> &nbsp; Obligatorio usar  @  y . </div>
+                                <div *ngIf="forma.get('contacto.correo').errors?.pattern" class="form-control-feedback alert alert-danger"> &nbsp; Obligatorio usar  @  y . </div>
                             </div>
                         </div>
                     </div>

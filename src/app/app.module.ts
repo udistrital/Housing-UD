@@ -8,6 +8,7 @@ import { APP_ROUTING } from './app.routes';
 //SERVICIOS
 import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
+import {UniversidadesService} from './services/universidades.service';
 
 //MODULOS
 
@@ -68,7 +69,8 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
   ],
   providers: [
    AlojamientosService,
-   UsuarioService
+   UsuarioService,
+   UniversidadesService
   ],
   bootstrap: [AppComponent]
 })

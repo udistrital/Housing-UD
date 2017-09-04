@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { Router } from "@angular/router";
+import {Universidad} from '../../interfaces/universidad.interface';
+import {UniversidadesService} from '../../services/universidades.service';
 
 @Component({
   selector: 'app-formulario-usuarios',
@@ -20,21 +22,6 @@ usuario:Object = {
   fechaNacimiento:"2017-09-04"
 }
 
-universidades: Object[] = [
-  {
-    nombre: "Universidad Distrital Francisco José de Caldas",
-    pais: "Colombia"
-  },
-  {
-    nombre: "Universidad de la Plata",
-    pais: "Argentina"
-  },
-  {
-    nombre: "Universidad Nacional Autónoma de México",
-    pais: "México"
-  }
-];
-
 movilidades:  Object[]=[
   {
     duracion:"6 Meses",
@@ -43,7 +30,6 @@ movilidades:  Object[]=[
     duracion:"12 Meses",
   }
 ]
-
 carreras: Object[]=[
   {
     nombreCarrera:"Ingeniería de Sistemas",
@@ -56,11 +42,15 @@ carreras: Object[]=[
   },
 ]
 
-  constructor(private router: Router) {
+universidades:Universidad[]=[];
+
+  constructor(private _universidadesService:UniversidadesService, private router: Router) {
+
      }
 
 
     ngOnInit() {
+      this.universidades=this._universidadesService.getUniversidades();
       this.forma= new FormGroup({
       'nombreCompleto': new FormGroup(
         {
@@ -82,17 +72,14 @@ carreras: Object[]=[
         'peso': new FormControl('',[Validators.required,Validators.min(1),Validators.max(250)]),
       }
     ),
-    'movilidad': new FormGroup(
-      {
-        'universidadOrigen': new FormControl('',Validators.required),
+
+        'universidadOrigen': new FormControl(),
         'paisOrigen': new FormControl('',Validators.required),
-        'universidadDestino': new FormControl('',Validators.required),
+        'universidadDestino': new FormControl(),
         'paisDestino': new FormControl('',Validators.required),
         'carrera': new FormControl('',Validators.required),
         'duracionMovilidad': new FormControl('',Validators.required),
-      }
-    ),
-    'contacto': new FormGroup(
+        'contacto': new FormGroup(
       {
         'indicativo': new FormControl('',Validators.required),
         'telefono': new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(15)]),
@@ -101,22 +88,56 @@ carreras: Object[]=[
     )
 
     })
+
+      this.forma.controls['universidadDestino'].setValidators([
+        Validators.required,
+        this.validarUniversidadDestino.bind( this.forma )
+      ]),
+      this.forma.controls['universidadOrigen'].setValidators([
+        Validators.required,
+        this.validarUniversidadOrigen.bind( this.forma )
+      ])
     }
+
+
+ validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
+   let forma: any = this;
+    if(controlUniversidadDestino.value === forma.controls['universidadOrigen'].value ){
+      return {
+        validarUniversidad:true
+      }
+    }
+       return null;
+     }
+
+     validarUniversidadOrigen(controlUniversidadOrigen:FormControl):{[falla:string]:boolean}{
+       let forma: any = this;
+        if(controlUniversidadOrigen.value === forma.controls['universidadDestino'].value ){
+          return {
+            validarUniversidad:true
+          }
+        }
+           return null;
+         }
 
   guardarCambios():void{
     console.log(this.forma.value);
     console.log(this.forma);
-
-  }
-
-  calcularEdad():number{
-    //console.log(this.forma.get('nacimiento.fechaNacimiento').value);
-      return Math.floor(Math.random() * 30) + 1 ;
+    //console.log(this.forma.controls['movilidad.universidadOrigen'].value);
   }
 
   regresar(){
+       this.forma.reset();
        this.router.navigate(['/landing']);
    }
+
+   buscarPaisOrigen(){
+     if(this.forma.get('universidadOrigen').valid){
+       this.forma.get('paisOrigen').setValue(this._universidadesService.buscarPaisOrigen());
+     }
+     console.log(this.forma.get('universidadOrigen').value);
+      //  console.log("llego"+arg);
+    }
 
 
 

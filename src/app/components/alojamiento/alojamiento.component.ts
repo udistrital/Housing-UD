@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Marker } from '../../interfaces/marker.interface';
 
 @Component({
   selector: 'app-alojamiento',
@@ -13,7 +14,7 @@ export class AlojamientoComponent implements OnInit {
   zoom:number = 16;
 
   //marcadores
-  markers: marker[]=[
+  markers: Marker[]=[
     {
       nombre:"Facultad Ingeniería",
       lat:4.6281962,
@@ -35,10 +36,4 @@ export class AlojamientoComponent implements OnInit {
   ngOnInit() {
   }
 
-}
-interface marker{
-  nombre?:string;
-  lat:number;
-  lng:number;
-  arrastrable:boolean;
 }

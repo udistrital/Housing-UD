@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Universidad } from '../../interfaces/universidad.interface';
 import { UniversidadesService } from '../../services/universidades.service';
+import { Usuario } from '../../interfaces/usuario.interface';
 
 @Component({
   selector: 'app-formulario-usuarios',
@@ -14,12 +15,12 @@ export class FormularioUsuariosComponent implements OnInit {
  //formulario
  forma: FormGroup;
 //Usuario
-usuario:Object = {
+usuario:Usuario = {
   nombreCompleto:{
     nombres: "Diana Catalina",
     apellidos: "Cano Narvaez"
   },
-  fechaNacimiento:"2017-09-04"
+  fechaNacimiento: null
 }
 
 

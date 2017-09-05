@@ -20,7 +20,7 @@ usuario:Usuario = {
     nombres: "Diana Catalina",
     apellidos: "Cano Narvaez"
   },
-  fechaNacimiento: null
+  fechaNacimiento: new Date("February 4, 2016")
 }
 
 

@@ -11,7 +11,7 @@ export class AlojamientoComponent implements OnInit {
   //Variables para el mapa
   lat:number = 4.627837801285463;
   lng:number = -74.15065860000004;
-  zoom:number = 16;
+  zoom:number = 18;
 
   //marcadores
   markers: Marker[]=[

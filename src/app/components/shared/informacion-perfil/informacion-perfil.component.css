@@ -15,6 +15,9 @@
 .img{
  width: 30%;
 }
+.nav-item{
+  font-size: 13px;
+}
 }
 
 @media only screen and (max-width: 1023px) {

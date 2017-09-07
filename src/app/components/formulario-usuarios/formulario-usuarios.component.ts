@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Universidad } from '../../interfaces/universidad.interface';
 import { UniversidadesService } from '../../services/universidades.service';
@@ -14,13 +14,34 @@ export class FormularioUsuariosComponent implements OnInit {
 
  //formulario
  forma: FormGroup;
-//Usuario
-usuario:Usuario = {
+//Usuario Estructura que debe tener la interface usuario
+usuario:any = {
   nombreCompleto:{
     nombres: "Diana Catalina",
     apellidos: "Cano Narvaez"
   },
-  fechaNacimiento: new Date("February 4, 2016")
+  fechaNacimiento: new Date("February 4, 2016"),
+  sexo:"Femenino",
+  sangre:{
+    tipoSangre:"O",
+    rh:"+"
+  },
+  talla:{
+    altura:"150",
+    peso:"50"
+  },
+  universidadOrigen:"UD",
+  paisOrigen:"Colombia",
+  ciudadOrigen:"Bogota",
+  //universidadesDestino:["Universidad 1", "Universidad 2","Universidad 3"],
+  carrera:"Ingeniería de Sistemas",
+  duracionMovilidad:"12 Meses",
+  contacto:{
+    indicativo:"+57",
+    telefono:"123343545",
+    correo:"jakdjask@jkds.com"
+  },
+  img:"assets/sdjkas.jpg"
 }
 
 
@@ -64,10 +85,13 @@ universidades:Universidad[]=[];
       }
     ),
 
-        'universidadOrigen': new FormControl(),
-        'paisOrigen': new FormControl('',Validators.required),
-        'universidadDestino': new FormControl(),
-        'paisDestino': new FormControl('',Validators.required),
+        'universidadOrigen': new FormControl('',Validators.required),
+        //'paisOrigen': new FormControl('',Validators.required),
+        //'ciudadOrigen': new FormControl('',Validators.required),
+        'universidadesDestino': new FormArray([
+          new FormControl('',Validators.required),
+        ]),
+
         'carrera': new FormControl('',Validators.required),
         'duracionMovilidad': new FormControl('',Validators.required),
         'contacto': new FormGroup(
@@ -79,7 +103,7 @@ universidades:Universidad[]=[];
     )
 
     })
-
+/*
       this.forma.controls['universidadDestino'].setValidators([
         Validators.required,
         this.validarUniversidadDestino.bind( this.forma )
@@ -88,7 +112,7 @@ universidades:Universidad[]=[];
       this.forma.controls['universidadOrigen'].setValidators([
         Validators.required,
         this.validarUniversidadOrigen.bind( this.forma )
-      ])
+      ])*/
     }
 
  validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
@@ -102,14 +126,30 @@ universidades:Universidad[]=[];
      }
 
      validarUniversidadOrigen(controlUniversidadOrigen:FormControl):{[falla:string]:boolean}{
-       let forma: any = this;
+       /*let forma: any = this;
         if(controlUniversidadOrigen.value === forma.controls['universidadDestino'].value ){
           return {
             validarUniversidad:true
           }
-        }
+        }*/
            return null;
          }
+
+
+  agregarUniversidadDestino(index:number){
+    console.log("llego y tamanio"+ index);
+  if(index==0|| index <=2){
+    (<FormArray>this.forma.controls['universidadesDestino']).push(
+      new FormControl('',Validators.required)
+    )
+  }
+
+  }
+
+  eliminarUniversidadDestino(){
+     (<FormArray>this.forma.controls['universidadesDestino']).controls.pop();
+  }
+
 
   guardarCambios():void{
     console.log(this.forma.value);

@@ -1,3 +1,39 @@
 .container{
 padding-top: 50px;
 }
+
+.form-horizontal{
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.col-form-label{
+  font-size: 14px;
+}
+
+
+@media handheld, only screen and (max-width: 767px) {
+  .col-form-label{
+    font-size: 11.5px;
+  }
+}
+
+/* Drop Zone */
+.drop-zone {
+	border: dotted 3px lightgray;
+	opacity: 0.5;
+	color: #666;
+	text-align: center
+}
+
+.file-over {
+	border: dotted 3px dodgerblue;
+}
+
+.table {
+	margin-top: 30px;
+}
+
+.text-green {
+	color: green
+}

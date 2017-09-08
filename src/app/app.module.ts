@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+//Directivas
+import { NgDropFilesDirective } from './directives/ng-drop-files.directive';
+
 //RUTAS
 import { APP_ROUTING } from './app.routes';
+
 //SERVICIOS
 import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
@@ -40,6 +44,7 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +59,7 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
     AlojamientoComponent,
     InicioComponent,
     FormularioUsuariosComponent,
+    NgDropFilesDirective,
   ],
   imports: [
     BrowserModule,

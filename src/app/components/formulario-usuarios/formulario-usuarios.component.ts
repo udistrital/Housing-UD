@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { Universidad } from '../../interfaces/universidad.interface';
 import { UniversidadesService } from '../../services/universidades.service';
 import { Usuario } from '../../interfaces/usuario.interface';
+import { FileItem } from '../../models/file-item';
 
 @Component({
   selector: 'app-formulario-usuarios',
@@ -11,6 +12,11 @@ import { Usuario } from '../../interfaces/usuario.interface';
   styleUrls: ['./formulario-usuarios.component.css']
 })
 export class FormularioUsuariosComponent implements OnInit {
+
+  //Controlar esta en el DropZone
+  estaSobreDropzone:boolean=false;
+  permiteCargar:boolean=true;
+  foto:FileItem=null;
 
  //formulario
  forma: FormGroup;
@@ -115,6 +121,12 @@ universidades:Universidad[]=[];
       ])*/
     }
 
+archivoSobreDropZone(e:boolean){
+  console.log(e);
+  this.estaSobreDropzone=e;
+}
+
+
  validarUniversidadDestino(controlUniversidadDestino:FormControl):{[falla:string]:boolean}{
    let forma: any = this;
     if(controlUniversidadDestino.value === forma.controls['universidadOrigen'].value ){
@@ -170,6 +182,14 @@ universidades:Universidad[]=[];
       //  console.log("llego"+arg);
     }
 
+    cargarFoto(){
+      this.permiteCargar=false;
+    }
 
+    limpiarFoto(){
+
+      this.foto=null;
+      this.permiteCargar = true;
+    }
 
 }

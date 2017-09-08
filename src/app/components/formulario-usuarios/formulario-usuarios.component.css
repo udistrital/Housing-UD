@@ -11,6 +11,21 @@ padding-top: 50px;
   font-size: 14px;
 }
 
+.btn-subir{
+  background: #18BC9C;
+  color: white;
+}
+.head{
+  background: #18BC9C;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+.btn-borrar{
+  background: #283848;
+  color: white;
+}
 
 @media handheld, only screen and (max-width: 767px) {
   .col-form-label{
@@ -28,6 +43,8 @@ padding-top: 50px;
 
 .file-over {
 	border: dotted 3px dodgerblue;
+  background-color: #D2E7F8;
+  color: #0275D8;
 }
 
 .table {

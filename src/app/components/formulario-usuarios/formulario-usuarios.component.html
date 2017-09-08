@@ -13,7 +13,7 @@
                 <h2 class="display-3"> <i class="fa fa-user-plus"></i> Registrate!</h2>
                 <!--Paso 1 DATOS BASICOS-->
                 <form-wizard >
-                    <wizard-step [title]="'Paso 1'" (onNext)="onStep1Next($event)">
+                    <wizard-step [title]="'Paso 1'" [isValid]="forma.valid" (onNext)="onStep1Next($event)">
                     <h1> <i class="fa fa-address-book"></i> Datos Básicos</h1>
                     <hr>
                     <legend><i class="fa fa-user"></i> Datos Personales</legend>
@@ -245,26 +245,29 @@
                     <hr>
                     <legend><i class="fa fa-camera"></i> Imágen de Perfil</legend>
                       <div class="form-group ">
-                          <div class="col-md-11">
+                          <div class="col-md-12">
                             <h6>Seleccione un archivo</h6>
                           </div>
                           <div NgDropFiles
+                               formControlName="img"
                                [ngClass]="{ 'file-over': estaSobreDropzone }"
                                (sobreDrop)="archivoSobreDropZone($event)"
                                [foto]="foto"
-                              class="well drop-zone">
-                              <small>Suelta tu foto aquí</small>
+                               class="well drop-zone"
+                               >
+                              <small >Suelta tu foto aquí</small>
                               <br>
                             <img src="/assets/img/drop-images.png" alt="">
+                          </div>
                           </div>
 
                             <div style="margin-left:20px; margin-top:20px;" class="block-center text-center">
                                <button type="button" class="btn btn-subir btn-sm"
                                        (click)="cargarFoto()"
-
                                        [disabled]="foto==null || !permiteCargar">
                                        <i class="fa fa-upload"></i>
                                        Subir Archivo</button>
+
 
                                <button type="button" class="btn btn-borrar btn-sm" (click)="limpiarFoto()">
                                  <i class="fa fa-download"></i> Limpiar Archivo
@@ -289,7 +292,7 @@
 
                             </div>
 
-                      </div>
+
 
                     </form>
                     <br>

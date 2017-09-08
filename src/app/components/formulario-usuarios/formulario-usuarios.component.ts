@@ -106,7 +106,8 @@ universidades:Universidad[]=[];
         'telefono': new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(15)]),
         'correo': new FormControl('',[Validators.required,Validators.pattern("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$")])
       }
-    )
+    ),
+        'img':new FormControl('')
 
     })
 /*

@@ -307,6 +307,145 @@
                     </div>
                     </wizard-step>
                     <wizard-step [title]="'Paso 2'" (onNext)="onStep2Next($event)">
+                      <h1> <i class="fa fa-address-book"></i> Datos Básicos</h1>
+                      <hr>
+                      <legend><i class="fa fa-user"></i> Datos Personales</legend>
+                      <form class="form-horizontal" [formGroup]="forma" (ngSubmit)="guardarCambios()">
+                      <div formGroupName="nombreCompleto" class="row">
+                          <div class="form-group col-lg-6 row" [ngClass]="{ 'has-danger': !forma.get('nombreCompleto.nombres').valid, 'has-success': forma.get('nombreCompleto.nombres').valid }">
+                              <label class="col-3 col-form-label">Nombres</label>
+                              <div class="col-9">
+                                  <input class="form-control"
+                                      type="text"
+                                      placeholder="Nombres"
+                                      formControlName="nombres">
+                                  <div *ngIf="forma.get('nombreCompleto.nombres').errors?.minlength"
+                                      class="form-control-feedback alert alert-danger">
+                                      Por lo menos 3 caracteres.
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group col-lg-6 row" [ngClass]="{ 'has-danger': !forma.get('nombreCompleto.apellidos').valid, 'has-success': forma.get('nombreCompleto.apellidos').valid }">
+                              <label class="col-3 col-form-label">Apellidos</label>
+                              <div class="col-9">
+                                  <input class="form-control"
+                                      type="text"
+                                      placeholder="Apellidos"
+                                      formControlName="apellidos">
+                                  <div *ngIf="forma.get('nombreCompleto.apellidos').errors?.minlength"
+                                      class="form-control-feedback alert alert-danger">
+                                      Por lo menos 3 caracteres.
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <hr>
+
+                      <div formGroupName="talla" class="row">
+                          <div class="form-group col-lg-6 row" [ngClass]="{ 'has-danger': !forma.get('talla.altura').valid, 'has-success': forma.get('talla.altura').valid }">
+                              <label class="col-3 col-form-label">Altura(cm) </label>
+                              <div class="col-9">
+                                  <input class="form-control " type="number"  placeholder="180" id="altura" formControlName="altura">
+                                  <div *ngIf="forma.get('talla.altura').errors?.min || forma.get('talla.altura').errors?.max "
+                                      class="form-control-feedback alert alert-danger">
+                                      Entre 1 y 250
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-group col-lg-6 row" [ngClass]="{ 'has-danger': !forma.get('talla.peso').valid, 'has-success': forma.get('talla.peso').valid }">
+                              <label class="col-3 col-form-label">Peso(kg) </label>
+                              <div class="col-9">
+                                  <input class="form-control " type="number"  placeholder="70" id="peso" formControlName="peso">
+                                  <div *ngIf="forma.get('talla.peso').errors?.min || forma.get('talla.peso').errors?.max "
+                                      class="form-control-feedback alert alert-danger">
+                                      Entre 1 y 250
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <hr>
+                      <legend><i class="fa fa-graduation-cap"></i> Universidad</legend>
+
+                              <hr style="border:1px dotted #E4E4E4; width:100%" />
+
+                              <div class="form-group row ">
+                                  <label class="col-3 col-form-label">Universidades Destino</label>
+                                  <div class="col-7" formArrayName="universidadesDestino" >
+                                      <select *ngFor="let udestino of forma.controls['universidadesDestino'].controls; let i = index"
+                                             class="form-control"
+                                             [formControlName]="i"
+                                             [ngClass]="{ 'has-danger': !forma.controls['universidadesDestino'].controls[i].valid, 'has-success': forma.controls['universidadesDestino'].controls[i].valid}">
+                                      <option [ngValue]="udestino" *ngFor="let udestino of universidades"  >{{udestino.nombre}}</option>
+                                      </select>
+                                  </div>
+
+                                  <div class="col-2">
+                                    <button (click)="agregarUniversidadDestino(forma.controls['universidadesDestino'].controls.length)"
+                                            [disabled]="forma.controls['universidadesDestino'].controls.length>2"
+                                            type="button"
+                                            class="btn btn-success ">
+                                        <i class="fa fa-plus-circle"></i>
+                                      </button>
+
+                                      <button (click)="eliminarUniversidadDestino()"
+                                              type="button"
+                                              class="btn btn-danger ">
+                                          <i class="fa fa-minus-circle"></i>
+                                        </button>
+                                  </div>
+                              </div>
+
+                              <hr style="border:1px dotted #E4E4E4; width:100%" />
+                          <div class="row">
+                              <div class="form-group col-lg-7 row" [ngClass]="{ 'has-danger': !forma.get('carrera').valid, 'has-success': forma.get('carrera').valid }">
+                                  <label class="col-4 col-form-label">Carrera</label>
+                                  <div class="col-8">
+                                      <select class="form-control"  formControlName="carrera">
+                                      <option [ngValue]="i" *ngFor="let carrera of universidades; let i = index ">{{carrera.carreras[i]}}</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              <div class="form-group col-lg-5 row" [ngClass]="{ 'has-danger': !forma.get('duracionMovilidad').valid, 'has-success': forma.get('duracionMovilidad').valid }">
+                                  <label class="col-4 col-form-label">Duración Movilidad</label>
+                                  <div class="col-8">
+                                      <select class="form-control"  formControlName="duracionMovilidad">
+                                      <option [ngValue]="d" *ngFor="let d of movilidades">{{d.duracion}}</option>
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+
+                      <hr>
+                      <legend><i class="fa fa-phone"></i> Contacto</legend>
+                      <div formGroupName="contacto">
+                          <div class="form-group row" [ngClass]="{ 'has-danger': !forma.get('contacto.correo').valid, 'has-success': forma.get('contacto.correo').valid }">
+                              <label class="col-3 col-form-label">Correo Electrónico</label>
+                              <div class="col-md-7 input-group">
+                                  <span class="input-group-addon">@</span>
+                                  <input class="form-control"
+                                      type="email"
+                                      placeholder="abc@housin.com"
+                                      formControlName="correo">
+                              </div>
+                              <div *ngIf="forma.get('contacto.correo').errors?.pattern" style=" text-align: center;" class="form-control-feedback alert alert-danger  col-lg-11 col-md-11 col-sm-12 col-xs-12 text-center"> &nbsp; Obligatorio usar  @  y . </div>
+                          </div>
+                      </div>
+
+
+                      </form>
+                      <br>
+                      <hr>
+                      <div class= "form-group row block-center text-right">
+                          <div class="col-lg-9 col-lg-offset-4">
+                              <button type="reset" class="btn btn-primary"> <i class="fa fa-eraser"></i> Borrar</button>
+                                    <!--[disabled]="!forma.valid"-->
+                              <button  type="submit" class="btn btn-success" (click)="guardarCambios()"> <i class="fa fa-check-circle-o"></i> Enviar</button>
+                              <button type="button" class="btn btn-warning" (click)="regresar()"> <i class="fa fa-home"></i> Volver</button>
+                          </div>
+                          <div class="col-lg-3">
+                              <p class="text-danger"><small>Campos Obligatorios</small></p>
+                          </div>
+                      </div>
                     </wizard-step>
                     <wizard-step [title]="'Paso 3'" (onNext)="onStep3Next($event)">
                     <h1>Paso 3</h1>

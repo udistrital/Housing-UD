@@ -184,6 +184,7 @@ archivoSobreDropZone(e:boolean){
     }
 
     cargarFoto(){
+      console.log(this.foto);
       this.permiteCargar=false;
     }
 

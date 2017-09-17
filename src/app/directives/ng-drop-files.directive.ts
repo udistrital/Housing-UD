@@ -48,7 +48,6 @@ export class NgDropFilesDirective {
         }
 
         private _agregarfoto(foto:File){
-
           if(this._fotoPuedeSerCargada(foto)){
             let nuevofoto = new FileItem(foto);
           }
@@ -58,6 +57,7 @@ export class NgDropFilesDirective {
         private _getTransferencia(event:any){
           return event.dataTransfer ? event.dataTransfer : event.originalEvent.dataTransfer;
         }
+
         private _fotoPuedeSerCargada(foto:File){
           if(this._esImagen(foto.type)){
             return true;

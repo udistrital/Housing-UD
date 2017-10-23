@@ -19,6 +19,9 @@ import {UniversidadesService} from './services/universidades.service';
 //paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
 
+//Autenticacion
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 //Form wizard
 import { FormWizardModule } from 'angular2-wizard';
 //Tooltip
@@ -40,6 +43,8 @@ import { InformacionPerfilComponent } from './components/shared/informacion-perf
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormularioUsuariosComponent } from './components/formulario-usuarios/formulario-usuarios.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 
 
@@ -60,6 +65,7 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
     InicioComponent,
     FormularioUsuariosComponent,
     NgDropFilesDirective,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +77,9 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
     FormWizardModule,
     ToolTipModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    OAuthModule.forRoot()
   ],
   providers: [
    AlojamientosService,

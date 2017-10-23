@@ -32,7 +32,7 @@ usuario:any = {
     tipoSangre:"O",
     rh:"+"
   },
-  talla:{
+  talla:{ // quitar esto
     altura:"150",
     peso:"50"
   },

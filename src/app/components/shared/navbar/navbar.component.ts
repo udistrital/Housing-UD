@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   private usuario:Usuario;
 
 //  constructor(private servicioUsuario:UsuarioService) { }
-constructor(private oauthService: OAuthService) { }
+constructor(private oauthService: OAuthService,   private router: Router) { }
 
   ngOnInit() {
   //  this.usuario=this.servicioUsuario.getUsuario();
@@ -24,6 +24,7 @@ constructor(private oauthService: OAuthService) { }
     console.log("Salir");
     console.log("Hace: "+this.oauthService.logOut());
       this.oauthService.logOut();
+      this.router.navigate(['/inicio']);
   }
 
 }

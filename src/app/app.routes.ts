@@ -5,7 +5,6 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { LoginComponent } from './components/login/login.component';
 import {FormularioUsuariosComponent} from './components/formulario-usuarios/formulario-usuarios.component';
 
 
@@ -17,7 +16,6 @@ const APP_ROUTES: Routes = [
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'alojamiento', component: AlojamientoComponent},
   { path: 'formulario-usuarios', component: FormularioUsuariosComponent},
-  { path: 'login', component: LoginComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
 
 

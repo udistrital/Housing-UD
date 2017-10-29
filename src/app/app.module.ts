@@ -42,7 +42,6 @@ import { InformacionPerfilComponent } from './components/shared/informacion-perf
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormularioUsuariosComponent } from './components/formulario-usuarios/formulario-usuarios.component';
-import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -63,7 +62,6 @@ import { LoginComponent } from './components/login/login.component';
     InicioComponent,
     FormularioUsuariosComponent,
     NgDropFilesDirective,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,

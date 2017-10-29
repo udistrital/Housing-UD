@@ -12,7 +12,7 @@ import { APP_ROUTING } from './app.routes';
 //SERVICIOS
 import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
-import {UniversidadesService} from './services/universidades.service';
+import { UniversidadesService } from './services/universidades.service';
 
 //MODULOS
 
@@ -38,7 +38,6 @@ import { AlojamientosComponent } from './components/alojamientos/alojamientos.co
 import { ModalInformacionComponent } from './components/shared/modal-informacion/modal-informacion.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
-import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { InformacionPerfilComponent } from './components/shared/informacion-perfil/informacion-perfil.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -59,7 +58,6 @@ import { LoginComponent } from './components/login/login.component';
     ModalInformacionComponent,
     PerfilComponent,
     PostulacionComponent,
-    MensajesComponent,
     InformacionPerfilComponent,
     AlojamientoComponent,
     InicioComponent,
@@ -79,7 +77,7 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
   ],
   providers: [
    AlojamientosService,

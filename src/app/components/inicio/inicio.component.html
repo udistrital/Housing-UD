@@ -17,14 +17,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="nav-item dropdown" routerLinkActive="active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link" (click)="login()" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-sign-in"></i> Entrar
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" [routerLink]="['/formulario-usuarios']"> <i class="fa fa-user-plus"></i> Registrarse</a>
-          <hr>
-          <a class="dropdown-item" (click)="login()"> <i class="fa fa-sign-in"></i> Entrar</a>
-        </div>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" href="#"> <i class="fa fa-legal"></i> Politicas</a>

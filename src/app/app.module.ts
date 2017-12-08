@@ -41,7 +41,6 @@ import { PostulacionComponent } from './components/postulacion/postulacion.compo
 import { InformacionPerfilComponent } from './components/shared/informacion-perfil/informacion-perfil.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-import { FormularioUsuariosComponent } from './components/formulario-usuarios/formulario-usuarios.component';
 
 
 
@@ -60,7 +59,6 @@ import { FormularioUsuariosComponent } from './components/formulario-usuarios/fo
     InformacionPerfilComponent,
     AlojamientoComponent,
     InicioComponent,
-    FormularioUsuariosComponent,
     NgDropFilesDirective,
   ],
   imports: [

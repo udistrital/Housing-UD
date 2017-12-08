@@ -1,0 +1,56 @@
+.container{
+padding-top: 50px;
+}
+
+.form-horizontal{
+  margin-left: 50px;
+  margin-right: 20px;
+}
+
+.col-form-label{
+  font-size: 14px;
+}
+
+.btn-subir{
+  background: #18BC9C;
+  color: white;
+}
+.head{
+  background: #18BC9C;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+.btn-borrar{
+  background: #283848;
+  color: white;
+}
+
+@media handheld, only screen and (max-width: 767px) {
+  .col-form-label{
+    font-size: 11.5px;
+  }
+}
+
+/* Drop Zone */
+.drop-zone {
+	border: dotted 3px lightgray;
+	opacity: 0.5;
+	color: #666;
+	text-align: center
+}
+
+.file-over {
+	border: dotted 3px dodgerblue;
+  background-color: #D2E7F8;
+  color: #0275D8;
+}
+
+.table {
+	margin-top: 30px;
+}
+
+.text-green {
+	color: green
+}

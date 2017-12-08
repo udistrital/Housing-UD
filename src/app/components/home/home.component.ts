@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       //yo lo puse de prueba
       this.oauthService.getIdentityClaims;
-
+      //this.nombre= this.givenName();
     }
 
     loadUserProfile(): void {

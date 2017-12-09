@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../../services/usuario.service';
+import { Usuario } from '../../../interfaces/usuario.interface';
 
 @Component({
   selector: 'informacion-perfil',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InformacionPerfilComponent implements OnInit {
 
-  constructor() { }
+  private usuario:Usuario;
+
+  constructor(private _usuarioService:UsuarioService) { }
 
   ngOnInit() {
+    this.usuario= this._usuarioService.getUsuario();
   }
 
   CalculateAge(): number {

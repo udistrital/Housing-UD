@@ -46,7 +46,7 @@
             </div>
             <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Edad</label>
             <div class="col-lg-2 col-sm-8 col-xs-8">
-               <input class="form-control" type="text"  readonly value="37 años" id="edad">
+               <input class="form-control" type="text"  readonly [value]="CalculateAge()"  id="edad">
             </div>
          </div>
 
@@ -60,7 +60,7 @@
          <div class="form-group row">
             <label for="carrerar" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Carrera</label>
             <div class="col-lg-8 col-sm-12- col-xs-12">
-               <input class="form-control" type="text"  readonly value="Ingenieria de Sistemas" id="carrera">
+               <input class="form-control" type="text"  readonly value={{usuario.carrera}} id="carrera">
             </div>
          </div>
          <div class="form-group row">

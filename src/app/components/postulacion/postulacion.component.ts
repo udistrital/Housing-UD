@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { Router } from "@angular/router";
 import { Universidad } from '../../interfaces/universidad.interface';
 import { UniversidadesService } from '../../services/universidades.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../interfaces/usuario.interface';
 import { FileItem } from '../../models/file-item';
 
@@ -62,35 +63,29 @@ movilidades:  Object[]=[
 
 universidades:Universidad[]=[];
 
-  constructor(private _universidadesService:UniversidadesService, private router: Router) {
-
+  constructor(private _universidadesService:UniversidadesService,
+              private router: Router,
+              private servicioUsuario:UsuarioService) {
      }
 
-
     ngOnInit() {
+      this.usuario = this.servicioUsuario.getUsuario();
       this.universidades=this._universidadesService.getUniversidades();
       this.forma= new FormGroup({
       'nombreCompleto': new FormGroup(
         {
-          'nombres': new FormControl('',[Validators.required, Validators.minLength(3)]),
-          'apellidos': new FormControl('',[Validators.required, Validators.minLength(3)]),
+          'nombres': new FormControl(''),
+          'apellidos': new FormControl(''),
         }
       ),
-      'fechaNacimiento': new FormControl('',Validators.required),
-      'sexo': new FormControl('',Validators.required),
+      'fechaNacimiento': new FormControl(''),
+      'sexo': new FormControl(''),
       'sangre': new FormGroup (
         {
-        'tipoSangre': new FormControl('',Validators.required),
-        'rh': new FormControl('',Validators.required),
+        'tipoSangre': new FormControl(''),
+        'rh': new FormControl(''),
         }
     ),
-    'talla': new FormGroup(
-      {
-        'altura': new FormControl('',[Validators.required,Validators.min(1),Validators.max(250)]),
-        'peso': new FormControl('',[Validators.required,Validators.min(1),Validators.max(250)]),
-      }
-    ),
-
         'universidadOrigen': new FormControl('',Validators.required),
         //'paisOrigen': new FormControl('',Validators.required),
         //'ciudadOrigen': new FormControl('',Validators.required),
@@ -110,8 +105,8 @@ universidades:Universidad[]=[];
         'img':new FormControl('')
 
     })
-/*
-      this.forma.controls['universidadDestino'].setValidators([
+
+    /*  this.forma.controls['universidadDestino'].setValidators([
         Validators.required,
         this.validarUniversidadDestino.bind( this.forma )
 

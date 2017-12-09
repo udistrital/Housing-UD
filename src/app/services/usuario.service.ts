@@ -3,8 +3,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UsuarioService {
   private usuario:any ={
-    nombre: "Alexis",
-    apellido: "Ortiz",
+    nombreCompleto:{
+      nombre: "Alexis",
+      apellido: "Ortiz",
+    },
+    fechaNacimiento: "02/08/1995",
+    sangre:{
+      tipoSangre:"O",
+      rh:"+"
+    },
+    genero:"Masculino",
     facultad:"Ingeniería",
     carrera:"Ingeniería Industrial",
     rol:"Estudiante",
@@ -12,7 +20,7 @@ export class UsuarioService {
 
   }
   constructor() {
-    console.log("Servicio listo para usarse");
+    console.log("Servicio de Usuario listo para usarse");
   }
 
 

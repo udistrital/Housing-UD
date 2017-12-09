@@ -17,13 +17,23 @@ export class InformacionPerfilComponent implements OnInit {
     this.usuario= this._usuarioService.getUsuario();
   }
 
-  CalcularEdad(): number {
+CalcularEdad():number{
+  if (this.usuario.fechaNacimiento) {
+      let hoy = new Date();
+      let cumpleanos = new Date(this.usuario.fechaNacimiento);
+      let edad = hoy.getFullYear() - cumpleanos.getFullYear();
+      return edad;
+    }else {
+        return null;
+      }
+}
+
+
+  /*CalcularEdad(): number {
     if (this.usuario.fechaNacimiento) {
-      //  var timeDiff = Math.abs(Date.now() - this.datosDTO.datosPersonales.fechaNacimiento);
+      //  let timeDiff = Math.abs(Date.now() - this.datosDTO.datosPersonales.fechaNacimiento);
         return  9//Math.ceil((timeDiff / (1000 * 3600 * 24)) / 365);
     }else {
         return null;
-   }
-}
-
+   }*/
 }

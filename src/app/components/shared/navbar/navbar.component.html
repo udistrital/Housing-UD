@@ -29,13 +29,13 @@
                   <li routerLinkActive="active">
                      <a href="#"> <i class="fa fa-legal"></i> Políticas del programa</a>
                   </li>
-                  
+
                </ul>
             </li>
          </ul>
          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-               <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>Estudiante</a>
+               <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>{{usuario.rol}}</a>
             </li>
             <li class="nav-item">
                <!--<a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Salir</a>-->

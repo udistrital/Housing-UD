@@ -10,19 +10,13 @@ import {OAuthService} from "angular-oauth2-oidc";
 })
 export class HomeComponent implements OnInit {
 
-  /*private usuario:Usuario;
-
-  constructor(private servicioUsuario: UsuarioService) { }
-
-  ngOnInit() {
-    this.usuario = this.servicioUsuario.getUsuario();
-  }*/
-
+  private usuario:Usuario;
     loginFailed: boolean = false;
     userProfile: object;
     nombre:string ="Prueba";
 
-    constructor(private oauthService: OAuthService) {
+    constructor(private oauthService: OAuthService,
+                private _usuarioService:UsuarioService) {
         // Tweak config for implicit flow.
         // This is just needed b/c this demo uses both,
         // implicit flow as well as password flow
@@ -31,7 +25,8 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
       //yo lo puse de prueba
-      this.oauthService.getIdentityClaims;
+      this.oauthService.getIdentityClaims();
+      this.usuario = this._usuarioService.getUsuario();
       //this.nombre= this.givenName();
     }
 

@@ -13,11 +13,13 @@ export class NavbarComponent implements OnInit {
 
   private usuario:Usuario;
 
-//  constructor(private servicioUsuario:UsuarioService) { }
-constructor(private oauthService: OAuthService,   private router: Router) { }
+
+constructor( private oauthService: OAuthService,
+             private router: Router,
+             private _usuarioService:UsuarioService) { }
 
   ngOnInit() {
-  //  this.usuario=this.servicioUsuario.getUsuario();
+    this.usuario=this._usuarioService.getUsuario();
   }
 
   public logout() {

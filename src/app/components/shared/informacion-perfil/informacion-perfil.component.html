@@ -23,38 +23,35 @@
          <div class="form-group row">
             <label for="fechaNacimiento" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Fecha de Nacimiento</label>
             <div class="col-lg-4 col-sm-8 col-xs-8">
-               <input class="form-control " type="text" readonly value="11/02/1980" id="fechaNacimiento">
+               <input class="form-control " type="text" readonly value={{usuario.fechaNacimiento}} id="fechaNacimiento">
             </div>
-            <label for="sexo" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Sexo</label>
+            <label for="genero" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Género </label>
             <div class="col-lg-4 col-sm-8 col-xs-8">
-               <input class="form-control" type="text" readonly  value="Masculino" id="sexo">
+               <input class="form-control" type="text" readonly  value={{usuario.genero}} id="genero">
             </div>
          </div>
 
          <div class="form-group row">
+            <label for="tipoSangre" class="col-lg-3 col-sm-4 col-xs-4 col-form-label">Tipo de Sangre</label>
+            <div class="col-lg-2 col-sm-8 col-xs-8">
+               <input class="form-control" type="text"  readonly value={{usuario.sangre.tipoSangre}} id="tipoSangre">
+            </div>
             <label for="RH" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">RH</label>
             <div class="col-lg-2 col-sm-8 col-xs-8">
-               <input class="form-control" type="text"  readonly value="A +" id="RH">
-            </div>
-            <label for="peso" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Peso</label>
-            <div class="col-lg-2 col-sm-8 col-xs-8">
-               <input class="form-control" type="text" readonly  value="78 Kg" id="peso">
-            </div>
-            <label for="altura" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Altura</label>
-            <div class="col-lg-2 col-sm-8 col-xs-8">
-               <input class="form-control" type="text"  readonly value="1.75 mts" id="altura">
+               <input class="form-control" type="text" readonly  value={{usuario.sangre.rh}} id="RH">
             </div>
             <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label">Edad</label>
             <div class="col-lg-2 col-sm-8 col-xs-8">
-               <input class="form-control" type="text"  readonly [value]="CalculateAge()"  id="edad">
+               <input class="form-control" type="text"  readonly [value]="CalcularEdad()"id="edad">
             </div>
+            <label for="edad" class="col-lg-1 col-sm-4 col-xs-4 col-form-label text-left">Años</label>
          </div>
 
           <hr>
            <div class="form-group row">
             <label for="universidadOrigen" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Universidad de Origen</label>
             <div class="col-lg-8 col-sm-12 col-xs-12">
-               <input class="form-control" type="text"  readonly value="UNAM" id="universidadOrigen">
+               <input class="form-control" type="text"  readonly value={{usuario.movilidad.universidadOrigen}} id="universidadOrigen">
             </div>
          </div>
          <div class="form-group row">
@@ -65,27 +62,33 @@
          </div>
          <div class="form-group row">
             <label for="duracion" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Duración Movilidad</label>
-            <div class="col-lg-8 col-sm-12 col-xs-12">
-               <input class="form-control" type="text"  readonly value="2 semestres" id="duracion">
+            <div class="col-lg-5 col-sm-12 col-xs-12">
+               <input class="form-control" type="text"  readonly value={{usuario.movilidad.duracionMovilidad}} id="duracion">
             </div>
+            <label for="duracion" class="col-lg-1 col-sm-12 col-xs-12 col-form-label">Semestre(s)</label>
          </div>
          <hr>
          <div class="form-group row">
             <label for="correo" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Correo Electrónico</label>
             <div class="col-lg-8 col-sm-12 col-xs-12">
-               <input class="form-control" type="email"  readonly value="ceriUD@hotmail.com" id="example-number-input">
+               <input class="form-control" type="email"  readonly value={{usuario.contacto.correo}} id="correo">
             </div>
          </div>
          <div class="form-group row">
-            <label for="telefono" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Teléfono</label>
-            <div class="col-lg-8 col-sm-12 col-xs-12">
-               <input class="form-control" type="text"  readonly value="3101234567" id="telefono">
+           <label for="indicativo" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Indicativo</label>
+           <div class="col-lg-2 col-sm-12 col-xs-12">
+              <input class="form-control" type="text"  readonly value={{usuario.contacto.indicativo}} id="indicativo">
+           </div>
+
+            <label for="telefono" class="col-lg-2 col-sm-12 col-xs-12 col-form-label">Teléfono</label>
+            <div class="col-lg-6 col-sm-12 col-xs-12">
+               <input class="form-control" type="text"  readonly value={{usuario.contacto.telefonoFijo}} id="telefono">
             </div>
          </div>
          <div class="form-group row">
-            <label for="example-number-input" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Número Pasaporte</label>
+            <label for="celular" class="col-lg-4 col-sm-12 col-xs-12 col-form-label">Celular</label>
             <div class="col-lg-8 col-sm-12 col-xs-12">
-               <input class="form-control" type="text"  readonly value="345-564-3" id="example-number-input">
+               <input class="form-control" type="text"  readonly value={{usuario.contacto.celular}} id="celular">
             </div>
          </div>
       </div>

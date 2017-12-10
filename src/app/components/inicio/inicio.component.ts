@@ -1,7 +1,12 @@
+/**
+* PILAS TODOS LOS COMENTARIOS CORRESPONDEN AL IDP ANTERIOR
+**/
 import { OAuthService } from 'angular-oauth2-oidc';
-import { JwksValidationHandler } from 'angular-oauth2-oidc';
-import { googleAuthConfig } from '../../auth.config';
+//import { JwksValidationHandler } from 'angular-oauth2-oidc';
+//import { googleAuthConfig } from '../../auth.config';
+
 import { Component, OnInit } from '@angular/core';
+//import { AuthService } from "../../services/auth.service";
 
 
 @Component({
@@ -11,20 +16,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent {
 
-  loginFailed: boolean = false;
-  userProfile: object;
+  //loginFailed: boolean = false;
+  //userProfile: object;
 
 
 
       constructor(private oauthService: OAuthService) {
-        this.configureWithNewConfigApi();
+
+      }
+      ngOnInit() {
+          console.log(this.oauthService.hasValidAccessToken());
+        }
+
+        login(): void {
+          this.oauthService.initImplicitFlow();
+        }
+
+
+
+/*
+    constructor(private authService: AuthService) {
+
       }
 
       ngOnInit() {
-        this.oauthService.getIdentityClaims();
-        console.log(this.oauthService.getIdentityClaims());
+      //  this.oauthService.getIdentityClaims();
+      //  console.log(this.oauthService.getIdentityClaims());
       }
 
+      login():void{
+        this.authService.login();
+      }
+/*
       private configureWithNewConfigApi() {
         this.oauthService.configure(googleAuthConfig);
         this.oauthService.tokenValidationHandler = new JwksValidationHandler();
@@ -66,7 +89,7 @@ export class InicioComponent {
            }
 
 
-
+*/
 
 
 }

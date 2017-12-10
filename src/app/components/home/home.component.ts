@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from "../../services/usuario.service";
 import { Usuario } from '../../interfaces/usuario.interface';
+//import { AuthService } from "../../services/auth.service";
 import { OAuthService } from "angular-oauth2-oidc";
-import { JwksValidationHandler } from 'angular-oauth2-oidc';
-import { googleAuthConfig } from '../../auth.config';
+//import { JwksValidationHandler } from 'angular-oauth2-oidc';
+//import { googleAuthConfig } from '../../auth.config';
 
 
 @Component({
@@ -14,12 +15,13 @@ import { googleAuthConfig } from '../../auth.config';
 export class HomeComponent implements OnInit {
 
   private usuario:Usuario;
-    loginFailed: boolean = false;
-    userProfile: object;
-    nombre:string;
-    email: string;
+    //loginFailed: boolean = false;
+    //userProfile: object;
+    nombre:any;
+    //email: string;
 
     constructor(private oauthService: OAuthService,
+                //private AuthService:AuthService,
                 private usuarioService:UsuarioService) {
 
 
@@ -27,11 +29,26 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
       this.usuario = this.usuarioService.getUsuario();
+      console.log(this.oauthService.hasValidAccessToken());
+      this.nombre = this.name;
+
+    }
+
+
+    public get name() {
+        const claims = this.oauthService.getIdentityClaims();
+        if (!claims) {
+            return null;
+        }
+        console.log(claims);
+        return this.nombre= claims['name'];
     }
 
 
 
-    loadUserProfile(): void {
+
+
+    /*loadUserProfile(): void {
         this
             .oauthService
             .loadUserProfile()
@@ -85,7 +102,7 @@ export class HomeComponent implements OnInit {
     get access_token_expiration() {
         return this.oauthService.getAccessTokenExpiration();
     }
-
+*/
 
 
 

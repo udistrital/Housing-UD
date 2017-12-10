@@ -4,6 +4,7 @@ import { Usuario } from '../../../interfaces/usuario.interface';
 import { OAuthService } from "angular-oauth2-oidc";
 import { Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -12,20 +13,14 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   private usuario:Usuario;
-  userName: string;
-  password: string;
-  loginFailed: boolean = false;
-  userProfile: object;
 
+  private userProfile;
 
 constructor( private oauthService: OAuthService,
              private router: Router,
              private _usuarioService:UsuarioService) { }
 
   ngOnInit() {
-
-    this.usuario=this._usuarioService.getUsuario();
-    console.log('Token Valido');
     console.log(this.oauthService.hasValidIdToken());
 
   }
@@ -53,8 +48,8 @@ constructor( private oauthService: OAuthService,
 
   public logout():void {
     console.log("Salir");
-     this.oauthService.logOut(true);
-     this.router.navigate(['/inicio']);
+     this.oauthService.logOut();
+     //this.router.navigate(['/inicio']);
  }
 
 

@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { OAuthService } from 'angular-oauth2-oidc';
+import { JwksValidationHandler } from 'angular-oauth2-oidc';
+import { googleAuthConfig } from './auth.config';
 
 
 @Component({
@@ -7,6 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  constructor(
+     private oauthService: OAuthService
+   ) {
+     this.configureWithNewConfigApi();
+   }
+
+   private configureWithNewConfigApi() {
+     this.oauthService.configure(googleAuthConfig);
+     this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+     this.oauthService.loadDiscoveryDocumentAndTryLogin();
+   }
+
 
 }

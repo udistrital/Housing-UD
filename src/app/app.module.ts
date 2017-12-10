@@ -22,6 +22,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 //Autenticacion
 import { OAuthModule } from 'angular-oauth2-oidc';
 
+
 //Form wizard
 import { FormWizardModule } from 'angular2-wizard';
 //Tooltip

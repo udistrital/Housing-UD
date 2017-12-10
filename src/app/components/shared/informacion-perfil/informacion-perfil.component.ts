@@ -28,12 +28,4 @@ CalcularEdad():number{
       }
 }
 
-
-  /*CalcularEdad(): number {
-    if (this.usuario.fechaNacimiento) {
-      //  let timeDiff = Math.abs(Date.now() - this.datosDTO.datosPersonales.fechaNacimiento);
-        return  9//Math.ceil((timeDiff / (1000 * 3600 * 24)) / 365);
-    }else {
-        return null;
-   }*/
 }

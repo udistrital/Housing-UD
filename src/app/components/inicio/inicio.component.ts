@@ -21,7 +21,8 @@ export class InicioComponent {
       }
 
       ngOnInit() {
-        this.oauthService.getIdentityClaims
+        this.oauthService.getIdentityClaims();
+        console.log(this.oauthService.getIdentityClaims());
       }
 
       private configureWithNewConfigApi() {
@@ -33,13 +34,39 @@ export class InicioComponent {
 
 
       public login() {
+        console.log("llego");
       this.oauthService.initImplicitFlow();
+
       }
 
-        public logout() {
-            this.oauthService.logOut();
-        }
+    public  logout():void {
+     this.oauthService.logOut(true);
+    }
 
-        
+
+        public loadUserProfile(): void {
+           this
+               .oauthService
+               .loadUserProfile()
+               .then(up => this.userProfile = up);
+
+         }
+         get access_token() {
+               return this.oauthService.getAccessToken();
+           }
+
+           get access_token_expiration() {
+             return this.oauthService.getAccessTokenExpiration();
+         }
+
+           get givenName() {
+               var claims = this.oauthService.getIdentityClaims();
+               if (!claims) return null;
+               return claims['given_name'];
+           }
+
+
+
+
 
 }

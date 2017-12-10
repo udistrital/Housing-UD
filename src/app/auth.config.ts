@@ -24,6 +24,10 @@ export const googleAuthConfig: AuthConfig = {
 
   showDebugInformation: true,
 
-  sessionChecksEnabled: true
+  sessionChecksEnabled: true,
   // DES : lp-bBnVKAIbA1O0ZYXQzqllN
+
+  //Url logOut
+  logoutUrl: window.location.origin + '/inicio',
+  oidc: true
 }

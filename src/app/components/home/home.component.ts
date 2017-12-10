@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from "../../services/usuario.service";
 import { Usuario } from '../../interfaces/usuario.interface';
-import {OAuthService} from "angular-oauth2-oidc";
+import { OAuthService } from "angular-oauth2-oidc";
+import { JwksValidationHandler } from 'angular-oauth2-oidc';
+import { googleAuthConfig } from '../../auth.config';
+
 
 @Component({
   selector: 'app-home',
@@ -13,22 +16,20 @@ export class HomeComponent implements OnInit {
   private usuario:Usuario;
     loginFailed: boolean = false;
     userProfile: object;
-    nombre:string ="Prueba";
+    nombre:string;
+    email: string;
 
     constructor(private oauthService: OAuthService,
-                private _usuarioService:UsuarioService) {
-        // Tweak config for implicit flow.
-        // This is just needed b/c this demo uses both,
-        // implicit flow as well as password flow
-        // this.oauthService.configure(authConfig)
+                private usuarioService:UsuarioService) {
+
+
     }
 
     ngOnInit() {
-      //yo lo puse de prueba
-      this.oauthService.getIdentityClaims();
-      this.usuario = this._usuarioService.getUsuario();
-      //this.nombre= this.givenName();
+      this.usuario = this.usuarioService.getUsuario();
     }
+
+
 
     loadUserProfile(): void {
         this
@@ -38,24 +39,19 @@ export class HomeComponent implements OnInit {
 
     }
 
-    get givenName() {
-        var claims = this.oauthService.getIdentityClaims();
+    get getNombre() {
+        let claims = this.oauthService.getIdentityClaims();
         if (!claims) return null;
-        return claims['given_name'];
+        return this.nombre =claims['given_name'];
     }
 
-    get familyName() {
-        var claims = this.oauthService.getIdentityClaims();
+    get getEmail():string {
+        let claims = this.oauthService.getIdentityClaims();
         if (!claims) return null;
-        return claims['family_name'];
+        return this.email= claims['email'];
     }
 
     testSilentRefresh() {
-        /*
-         * Tweak config for implicit flow.
-         * This is needed b/c this sample uses both flows
-        */
-        //this.oauthService.clientId = "spa-demo";
         this.oauthService.oidc = true;
 
         this

@@ -42,6 +42,7 @@ import { PostulacionComponent } from './components/postulacion/postulacion.compo
 import { InformacionPerfilComponent } from './components/shared/informacion-perfil/informacion-perfil.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { EntrevistaComponent }  from "./components/entrevista/entrevista.component";
 
 
 
@@ -61,6 +62,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     AlojamientoComponent,
     InicioComponent,
     NgDropFilesDirective,
+    EntrevistaComponent
   ],
   imports: [
     BrowserModule,

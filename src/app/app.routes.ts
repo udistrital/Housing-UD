@@ -5,6 +5,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { EntrevistaComponent } from "./components/entrevista/entrevista.component";
 
 
 
@@ -15,6 +16,7 @@ const APP_ROUTES: Routes = [
   { path: 'perfil', component: PerfilComponent},
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'alojamiento', component: AlojamientoComponent},
+  { path: 'entrevista', component: EntrevistaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
 
 

@@ -1,0 +1,16 @@
+@media handheld, only screen and (max-width: 767px) {
+.housing{
+display:none;
+}
+}
+
+@media only screen and (max-width: 1023px) {
+.housing{
+display:none;
+}
+}
+
+
+pre{
+  color:white;
+}

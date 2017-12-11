@@ -21,6 +21,7 @@
                <a class="nav-link" [routerLink]="['/postulacion']" ><i class="fa fa-fw fa-plus-square"></i> Postular un alojamiento</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
+               <!--*ngIf="!esEstudiante()"-->
                <a class="nav-link" [routerLink]="['/entrevista']" ><i class="fa fa-fw fa-calendar"></i> Entrevista</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
@@ -38,7 +39,7 @@
          </ul>
          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-               <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>{{nombre}}</a>
+               <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>{{usuario.rol}}</a>
             </li>
             <li class="nav-item">
                <!--<a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Salir</a>-->

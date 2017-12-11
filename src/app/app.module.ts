@@ -13,6 +13,7 @@ import { APP_ROUTING } from './app.routes';
 import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
 import { UniversidadesService } from './services/universidades.service';
+import { AuthGuardService } from "./services/auth-guard.service";
 
 //MODULOS
 
@@ -81,7 +82,8 @@ import { EntrevistaComponent }  from "./components/entrevista/entrevista.compone
   providers: [
    AlojamientosService,
    UsuarioService,
-   UniversidadesService
+   UniversidadesService,
+   AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

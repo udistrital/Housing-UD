@@ -17,7 +17,10 @@ export class HomeComponent implements OnInit {
   private usuario:Usuario;
     //loginFailed: boolean = false;
     //userProfile: object;
-    nombre:any;
+    private nombre:string;
+    private correo:string;
+    private userProfile:any;
+
     //email: string;
 
     constructor(private oauthService: OAuthService,
@@ -29,10 +32,19 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
       this.usuario = this.usuarioService.getUsuario();
+      this.loadUserProfile();
       console.log(this.oauthService.hasValidAccessToken());
       this.nombre = this.name;
 
     }
+
+    loadUserProfile(): void {
+        this
+            .oauthService
+            .loadUserProfile()
+            .then(up => this.userProfile = up);
+
+      }
 
 
     public get name() {
@@ -48,13 +60,7 @@ export class HomeComponent implements OnInit {
 
 
 
-    /*loadUserProfile(): void {
-        this
-            .oauthService
-            .loadUserProfile()
-            .then(up => this.userProfile = up);
-
-    }
+    /*
 
     get getNombre() {
         let claims = this.oauthService.getIdentityClaims();

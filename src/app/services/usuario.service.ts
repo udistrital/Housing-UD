@@ -27,7 +27,7 @@ export class UsuarioService {
       indicativo:"+57",
       telefonoFijo:"1235678",
       celular:"3008977654",
-      correo:"ceri@udistrital.edu.co"
+      correo:"as@has.com"
     }
 
 
@@ -37,8 +37,9 @@ export class UsuarioService {
   }
 
 
-  getUsuario(){
+  public getUsuario(){
     return this.usuario;
   }
+
 
 }

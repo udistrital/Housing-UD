@@ -13,16 +13,28 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
 
   private usuario:Usuario;
+  private nombre:string;
 
-  private userProfile;
+  private userProfile:any;
 
 constructor( private oauthService: OAuthService,
              private router: Router,
              private _usuarioService:UsuarioService) { }
 
   ngOnInit() {
-    console.log(this.oauthService.hasValidIdToken());
+    console.log(this.oauthService.hasValidAccessToken());
+     this.loadUserProfile();
+      this.nombre = this.name;
 
+  }
+
+  public get name() {
+      const claims = this.oauthService.getIdentityClaims();
+      if (!claims) {
+          return null;
+      }
+      console.log(claims);
+      return this.nombre= claims['name'];
   }
 
   loadUserProfile(): void {
@@ -40,11 +52,6 @@ constructor( private oauthService: OAuthService,
         return this.oauthService.getAccessTokenExpiration();
     }
 
-      get givenName() {
-          let claims = this.oauthService.getIdentityClaims();
-          if (!claims) return null;
-          return claims['given_name'];
-      }
 
   public logout():void {
     console.log("Salir");

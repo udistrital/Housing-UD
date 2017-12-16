@@ -19,7 +19,9 @@ export class InformacionPerfilComponent implements OnInit {
   ngOnInit() {
     this.usuario= this.usuarioService.getUsuario();
     console.log(this.oauthService.hasValidAccessToken());
-    this.loadUserProfile();
+    console.log("USUARIO");
+    console.log(this.usuario);
+    //this.loadUserProfile();
   }
 
   loadUserProfile(): void {

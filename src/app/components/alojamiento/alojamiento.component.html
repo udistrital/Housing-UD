@@ -6,13 +6,14 @@
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a [routerLink]="['/home']"><i class="fa fa-home"></i> Inicio</a></li>
       <li class="breadcrumb-item"><a [routerLink]="['/alojamientos']"><i class="fa fa-search"></i> Buscar Alojamiento</a></li>
-      <li class="breadcrumb-item active"><i class="fa fa-map-marker"></i> Kennedy</li>
+      <li class="breadcrumb-item active"><i class="fa fa-map-marker"></i> {{usuario.alojamiento.barrio}}</li>
     </ol>
     <!-- Portfolio Item Heading -->
-    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> Kennedy <small>Casa Familiar</small></h1>
+    <h1 class="my-4 text-primary"> <i class="fa fa-map-marker"></i> {{usuario.alojamiento.barrio}} <small>Casa Familiar  | <small>Estrato: {{usuario.alojamiento.estrato}}</small> </small>   </h1>
+<!-- tipo de casa viene de mongo-->
     <hr>
-    <!-- Portfolio Item Row -->
-    <div class="row">
+
+    <div class="row animated fadeInUp">
       <div class="col-lg-8">
         <img class="img-fluid" src="assets/img/img1.jpg" height="auto" width="100%" alt="">
         <br>
@@ -22,21 +23,21 @@
               <td>
                 <i class="fa fa-suitcase"></i>
                 Hospedan a: <br>
-                Mujer
+                Mujer <!--viene de mongo-->
               </td>
               <td>
                 <i class="fa fa-university"></i>
                 Cerca a:<br>
-                Facultad de Ingeniería
+                Facultad de Ingeniería <!--viene de mongo-->
               </td>
-              <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: 5</td>
+              <td> <i class="fa fa-users"></i> Habitantes en el alojamiento: {{usuario.alojamiento.numeroPersonasNucleoFamiliar}}</td>
             </tr>
           </tbody>
         </table>
         <hr>
         <p class="text-justify">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        </p> <!--viene de mongo-->
         <hr>
         <h3 class="my-4">  <i class="fa fa-home text-info"></i> Componentes del Alojamiento</h3>
         <div class="alert alert-warning" role="alert">
@@ -109,21 +110,21 @@
         <table class="table table-striped">
           <tbody>
             <tr>
-              <td> <i class="fa fa-map-pin"></i> Dirección: Calle 26 78 L 15 </td>
-              <td> <i class="fa fa-street-view"></i> Localidad: Kennedy</td>
+              <td> <i class="fa fa-map-pin"></i> Dirección: {{usuario.alojamiento.direccion}} </td>
+              <td> <i class="fa fa-street-view"></i> Localidad: {{usuario.alojamiento.barrio}}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <!--Barra lateral-->
       <div class="col-lg-4">
-        <h3 class="my-3"> <i class="fa fa-user text-success"></i> Catalina Cano</h3>
-        <img  src="assets/img/cata.jpeg" height="auto" width="100%" align="center">
+        <h3 class="my-3"> <i class="fa fa-user text-success"></i> {{usuario.nombreCompleto.nombres}} {{usuario.nombreCompleto.apellidos}}</h3>
+        <img  [src]="usuario.img" height="auto" width="100%" align="center">
         <h3 class="my-3"> <i class="fa fa-coffee text-warning"></i> Interéses y Costumbres del alojamiento anfitrión</h3>
         <table class="table table-striped">
           <tbody>
             <tr>
-              <td> <i class="fa fa-language"></i> Idiomas: Español </td>
+              <td> <i class="fa fa-language"></i> Idiomas: {{usuario.idioma}} </td>
             </tr>
             <tr>
               <td> <i class="fa fa-spoon"></i> Hábitos Alimenticios: Vegetarianos </td>
@@ -204,7 +205,7 @@
         <div class="alert alert-info" role="alert">
           <strong>Si desea aplicar este alojamiento!</strong> haga clic en Contactar, así podrá comunicarse con el anfitrión
         </div>
-        <button class="btn btn-success btn-block"> <i class="fa fa-envelope"></i> Contactar</button>
+        <button class="btn btn-success btn-block" data-toggle="modal" data-target="#condiciones"> <i class="fa fa-envelope"></i> Contactar</button>
       </div>
     </div>
     <hr>
@@ -228,4 +229,54 @@
     <!-- /.row -->
   </div>
   <!-- /.container -->
+</div>
+
+<!--MODAL-->
+<!--Ventana Emergente Condiciones-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="condiciones">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title text-primary"> <i class="fa fa-phone"></i>  Datos de Contacto</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body">
+         <div class="row">
+           <div class="col-md-5">
+               <img src="assets/img/contacto.png" align=center width=40% alt="">
+           </div>
+           <div class="col-md-7">
+
+             <table class="table table-striped">
+               <tbody>
+                 <tr>
+                   <td> <i class="fa fa-user"></i> Nombre Completo: {{usuario.nombreCompleto.nombres}} {{usuario.nombreCompleto.apellidos}} </td>
+                 </tr>
+                 <tr>
+                   <td> <i class="fa fa-phone"></i> Telefono: {{usuario.contacto.indicativo}} {{usuario.contacto.telefonoFijo}}</td>
+                 </tr>
+                 <tr>
+                   <td> <i class="fa fa-mobile"></i> Celular: {{usuario.contacto.celular}} </td>
+                 </tr>
+                 <tr>
+                   <td> <i class="fa fa-envelope"></i> Correo: {{usuario.contacto.correo}}</td>
+                 </tr>
+
+               </tbody>
+             </table>
+           </div>
+         </div>
+
+
+
+     </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-xs" data-dismiss="modal"> <i class="fa fa-window-close"></i> Cerrar</button>
+
+     </div>
+   </div>
+    </div>
 </div>

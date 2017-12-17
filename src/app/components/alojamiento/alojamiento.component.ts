@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Marker } from '../../interfaces/marker.interface';
+import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: 'app-alojamiento',
@@ -7,6 +9,9 @@ import { Marker } from '../../interfaces/marker.interface';
   styleUrls: ['./alojamiento.component.css']
 })
 export class AlojamientoComponent implements OnInit {
+
+  //usuario
+  private usuario:Usuario;
 
   //Variables para el mapa
   lat:number = 4.627837801285463;
@@ -29,7 +34,9 @@ export class AlojamientoComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor(private usuarioService:UsuarioService ) {
+    this.usuario= this.usuarioService.getUsuario();
+  }
 
   //Interface marker
 

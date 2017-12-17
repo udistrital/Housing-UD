@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../interfaces/usuario.interface';
 import { OAuthService } from "angular-oauth2-oidc";
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'informacion-perfil',

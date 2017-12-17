@@ -13,7 +13,7 @@ const APP_ROUTES: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'inicio', component: InicioComponent},
   { path: 'alojamientos', component: AlojamientosComponent},
-  { path: 'perfil', component: PerfilComponent},
+  { path: 'perfil/:id', component: PerfilComponent}, //ver la informacion del perfil de un estudiante en firebase
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'alojamiento', component: AlojamientoComponent},
   {

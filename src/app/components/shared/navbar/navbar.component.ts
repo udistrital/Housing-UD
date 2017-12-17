@@ -25,6 +25,7 @@ constructor( private oauthService: OAuthService,
     console.log(this.oauthService.hasValidAccessToken());
      this.loadUserProfile();
       this.nombre = this.name;
+      this.usuario= this._usuarioService.getUsuario();
 
   }
 

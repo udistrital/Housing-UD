@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
       this.usuario = this.usuarioService.getUsuario();
-      this.loadUserProfile();
       console.log(this.oauthService.hasValidAccessToken());
       this.nombre = this.name;
 

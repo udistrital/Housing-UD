@@ -20,6 +20,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     this.usuario= this.servicioUsuario.getUsuario();
+    console.log(this.usuario);
     console.log(this.oauthService.hasValidAccessToken());
     //this.loadUserProfile();
     //const claims = this.oauthService.getIdentityClaims();

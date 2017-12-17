@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../interfaces/usuario.interface';
+import { OAuthService } from "angular-oauth2-oidc";
 
 @Component({
   selector: 'informacion-perfil',
@@ -10,12 +11,26 @@ import { Usuario } from '../../../interfaces/usuario.interface';
 export class InformacionPerfilComponent implements OnInit {
 
   private usuario:Usuario;
+  private userProfile:any;
 
-  constructor(private _usuarioService:UsuarioService) { }
+  constructor(private usuarioService:UsuarioService,
+              private oauthService:OAuthService) { }
 
   ngOnInit() {
-    this.usuario= this._usuarioService.getUsuario();
+    this.usuario= this.usuarioService.getUsuario();
+    console.log(this.oauthService.hasValidAccessToken());
+    console.log("USUARIO");
+    console.log(this.usuario);
+    //this.loadUserProfile();
   }
+
+  loadUserProfile(): void {
+      this
+          .oauthService
+          .loadUserProfile()
+          .then(up => this.userProfile = up);
+
+    }
 
 CalcularEdad():number{
   if (this.usuario.fechaNacimiento) {

@@ -13,6 +13,7 @@ import { APP_ROUTING } from './app.routes';
 import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
 import { UniversidadesService } from './services/universidades.service';
+import { AuthGuardService } from "./services/auth-guard.service";
 
 //MODULOS
 
@@ -42,6 +43,7 @@ import { PostulacionComponent } from './components/postulacion/postulacion.compo
 import { InformacionPerfilComponent } from './components/shared/informacion-perfil/informacion-perfil.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { EntrevistaComponent }  from "./components/entrevista/entrevista.component";
 
 
 
@@ -61,6 +63,7 @@ import { InicioComponent } from './components/inicio/inicio.component';
     AlojamientoComponent,
     InicioComponent,
     NgDropFilesDirective,
+    EntrevistaComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
   providers: [
    AlojamientosService,
    UsuarioService,
-   UniversidadesService
+   UniversidadesService,
+   AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -5,7 +5,8 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { PostulacionComponent } from './components/postulacion/postulacion.component';
 import { AlojamientoComponent } from './components/alojamiento/alojamiento.component';
 import { InicioComponent } from './components/inicio/inicio.component';
-
+import { EntrevistaComponent } from "./components/entrevista/entrevista.component";
+import  { AuthGuardService } from "./services/auth-guard.service";
 
 
 const APP_ROUTES: Routes = [
@@ -15,6 +16,10 @@ const APP_ROUTES: Routes = [
   { path: 'perfil', component: PerfilComponent},
   { path: 'postulacion', component: PostulacionComponent},
   { path: 'alojamiento', component: AlojamientoComponent},
+  {
+    path: 'entrevista', component: EntrevistaComponent,
+    canActivate:[ AuthGuardService ]
+  },
   { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
 
 

@@ -59,5 +59,12 @@ constructor( private oauthService: OAuthService,
      //this.router.navigate(['/inicio']);
  }
 
+ /*public esEstudiante():boolean{
+   if(this.usuario.rol.toUpperCase() == 'ESTUDIANTE'){
+      return true;
+   }
+    return false;
+ }*/
+
 
   }

@@ -1,24 +1,43 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuario.interface';
+import { Http } from '@angular/http';
+
+
+
+
+
 
 @Injectable()
 export class UsuarioService {
+
+  //URL DE PETICION
+  usuariosURL:string= "https://housingud-501cb.firebaseio.com/estudiantes.json";
+  usuarioURL:string ="https://housingud-501cb.firebaseio.com/estudiantes/1.json";
+
 
   private usuario:Usuario ={
     nombreCompleto:{
       nombres: "",
       apellidos: "",
     },
+    identificacion:{
+      tipoIdentificacion: "",
+      numeroIdentificacion: "",
+    },
+    idioma:"",
+    estadoCivil:"",
     fechaNacimiento: "",
     sangre:{
       tipoSangre:"O",
       rh:"+"
     },
     genero:"fEME",
-    facultad:"",
-    carrera:"",
+    educacion:{
+      codigo:"",
+      facultad:"O",
+      carrera:"+"
+    },
     rol:"",
-    sobreMi:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     img:"assets/img/perfil.jpg",
     movilidad:{
       universidadOrigen:  "",
@@ -30,12 +49,46 @@ export class UsuarioService {
       telefonoFijo:"",
       celular:"",
       correo:""
+    },
+    alojamiento:{
+      barrio:"",
+      direccion:"",
+      estrato:"",
+      conQuienVive:"",
+      numeroPersonasNucleoFamiliar:"",
+      tipoDeCasa:""
+    },
+    condicionesMedicas:{
+      enfermedades:"",
+      alergias:"",
+      medicamentos:""
+    },
+    limitaciones:{
+      limitacionAuditva:"",
+      limitacionFisica:"",
+      limitacionMental:"",
+      limitacionVisual:"",
+      otraLimitacion:""
+    },
+    contactoEmergencia:{
+      nombreCompleto:{
+        nombres: "",
+        apellidos: "",
+      },
+      parentesco:"",
+      contacto:{
+        indicativo:"",
+        telefonoFijo:"",
+        celular:"",
+        correo:""
+      }
+
     }
 
 
-
   }
-  constructor() {
+
+  constructor(private http:Http) {
     console.log("Servicio de Usuario listo para usarse");
   }
 

@@ -45,6 +45,7 @@ import { InicioComponent } from './components/Inicio/inicio.component';
 import { EntrevistaComponent } from './components/paginas/entrevista/entrevista.component';
 import { NopagefoundComponent } from './components/shared/404/nopagefound/nopagefound.component';
 import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
+import { PaginasComponent } from './components/paginas/paginas.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumb
     NgDropFilesDirective,
     EntrevistaComponent,
     NopagefoundComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    PaginasComponent
   ],
   imports: [
     BrowserModule,

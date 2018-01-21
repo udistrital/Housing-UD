@@ -15,6 +15,7 @@ import { AlojamientosService } from './services/alojamientos.service';
 import { UsuarioService } from './services/usuario.service';
 import { UniversidadesService } from './services/universidades.service';
 import { AuthGuardService } from './services/auth-guard.service';
+<<<<<<< HEAD
 
 // MODULOS
 import {NgxPaginationModule} from 'ngx-pagination'; // paginacion
@@ -22,6 +23,19 @@ import { OAuthModule } from 'angular-oauth2-oidc'; // Autenticacion
 import { FormWizardModule } from 'angular2-wizard'; // Form wizard
 import {ToolTipModule} from 'angular2-tooltip'; // Tooltip
 import { AgmCoreModule } from '@agm/core'; // Modulo de mapas
+=======
+// MODULOS
+// paginacion
+import {NgxPaginationModule} from 'ngx-pagination';
+// Autenticacion
+import { OAuthModule } from 'angular-oauth2-oidc';
+// Form wizard
+import { FormWizardModule } from 'angular2-wizard';
+// Tooltip
+import {ToolTipModule} from 'angular2-tooltip'
+// Modulo de mapas
+import { AgmCoreModule } from '@agm/core';
+>>>>>>> 1143571d6af4063ac5bf7f6edfe1ebfa6657bb5f
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -38,7 +52,10 @@ import { EntrevistaComponent } from './components/paginas/entrevista/entrevista.
 import { NopagefoundComponent } from './components/shared/404/nopagefound/nopagefound.component';
 import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
 import { PaginasComponent } from './components/paginas/paginas.component';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1143571d6af4063ac5bf7f6edfe1ebfa6657bb5f
 
 
 @NgModule({

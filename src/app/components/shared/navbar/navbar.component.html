@@ -4,7 +4,11 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" [routerLink]="['/home']">Housing-UD</a>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" [routerLink]="['/home']">
+                <img src="/assets/img/favicon.ico" width="30" height="30" class="d-inline-block align-top" alt=""> Housing-UD
+            </a>
+        </nav>
         <div class="collapse navbar-collapse" id="navbarExample">
             <ul class="sidebar-nav navbar-nav">
                 <!--Clase del activo-->
@@ -39,24 +43,15 @@
             </ul>
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Buscar ...">
-                            <span class="input-group-btn">
-                                                     <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-                                                     </span>
-                        </div>
-                    </form>
-                </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle mr-lg-2" href="#" id="messagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle mr-lg-2 " href="#" id="messagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-fw fa-envelope"></i> <span class="hidden-lg-up">Messages <span class="badge badge-pill badge-primary">12 New</span></span>
                         <span class="new-indicator text-primary hidden-md-down"><i class="fa fa-fw fa-circle"></i><span class="number">12</span></span>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                    <div class="dropdown-menu animated flipInY" aria-labelledby="messagesDropdown">
 
-                        <h6 class="dropdown-header">New Messages:</h6>
+                        <h6 class="dropdown-header"> <i class="fa fa-fw fa-envelope"></i> New Messages:</h6>
 
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">
@@ -74,11 +69,19 @@
                             <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item small" href="#">
-                                          View all messages
-                                          </a> </div>
+                        <a class="dropdown-item small" href="#"> <i class="fa fa-fw fa-comments"></i> View all messages </a>
+                    </div>
                 </li>
-
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar ...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/perfil']"><i class="fa fa-fw fa-user"></i>{{usuario.rol}}</a>
                 </li>

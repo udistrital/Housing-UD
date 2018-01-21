@@ -16,8 +16,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent {
 
-  //loginFailed: boolean = false;
-  //userProfile: object;
+  // loginFailed: boolean = false;
+  // userProfile: object;
 
 
 

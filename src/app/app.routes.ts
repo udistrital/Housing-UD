@@ -7,6 +7,7 @@ import { PostulacionComponent } from './components/paginas/postulacion/postulaci
 import { AlojamientoComponent } from './components/paginas/alojamiento/alojamiento.component';
 import { EntrevistaComponent } from './components/paginas/entrevista/entrevista.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { NopagefoundComponent } from './components/shared/404/nopagefound/nopagefound.component';
 
 
 
@@ -21,9 +22,8 @@ const APP_ROUTES: Routes = [
     path: 'entrevista', component: EntrevistaComponent,
     canActivate: [AuthGuardService ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'inicio' }
-
-
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '**', component: NopagefoundComponent}
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES);

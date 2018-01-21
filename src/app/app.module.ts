@@ -15,19 +15,14 @@ import { UsuarioService } from './services/usuario.service';
 import { UniversidadesService } from './services/universidades.service';
 import { AuthGuardService } from './services/auth-guard.service';
 // MODULOS
-
 // paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
-
 // Autenticacion
 import { OAuthModule } from 'angular-oauth2-oidc';
-
-
 // Form wizard
 import { FormWizardModule } from 'angular2-wizard';
 // Tooltip
 import {ToolTipModule} from 'angular2-tooltip'
-
 // Modulo de mapas
 import { AgmCoreModule } from '@agm/core';
 
@@ -45,6 +40,7 @@ import { InicioComponent } from './components/Inicio/inicio.component';
 import { EntrevistaComponent } from './components/paginas/entrevista/entrevista.component';
 import { NopagefoundComponent } from './components/shared/404/nopagefound/nopagefound.component';
 import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
+import { PaginasComponent } from './components/paginas/paginas.component';
 
 
 @NgModule({
@@ -62,7 +58,8 @@ import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumb
     NgDropFilesDirective,
     EntrevistaComponent,
     NopagefoundComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    PaginasComponent
   ],
   imports: [
     BrowserModule,

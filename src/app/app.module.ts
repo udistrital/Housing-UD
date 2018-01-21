@@ -46,6 +46,7 @@ import { EntrevistaComponent } from './components/paginas/entrevista/entrevista.
 import { NopagefoundComponent } from './components/shared/404/nopagefound/nopagefound.component';
 import { BreadcrumbsComponent } from './components/shared/breadcrumbs/breadcrumbs.component';
 import { PaginasComponent } from './components/paginas/paginas.component';
+import { PAGINAS_ROUTING } from './components/paginas/paginas.routes';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { PaginasComponent } from './components/paginas/paginas.component';
       apiKey: 'AIzaSyB_8h8OFAoL5Z2HDgeH761GUwoadE_kttg'
     }),
     APP_ROUTING,
+    PAGINAS_ROUTING,
     FormWizardModule,
     ToolTipModule,
     FormsModule,

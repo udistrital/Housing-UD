@@ -18,24 +18,7 @@ import { NopagefoundComponent } from './components/shared/404/nopagefound/nopage
 
 
 const APP_ROUTES: Routes = [
-  { path: 'inicio', component: InicioComponent},
-
-  {
-     path: '',
-     component: PaginasComponent,
-     children: [
-      { path: 'home', component: HomeComponent},
-      { path: 'alojamientos', component: AlojamientosComponent},
-      { path: 'perfil/:id', component: PerfilComponent}, // ver la informacion del perfil de un estudiante en firebase
-      { path: 'alojamiento', component: AlojamientoComponent},
-      {
-        path: 'entrevista', component: EntrevistaComponent,
-        canActivate: [AuthGuardService ]
-      },
-      { path: '', pathMatch: 'full', redirectTo: '/home' },
-    ]
-  },
-  { path: '**', component: NopagefoundComponent}
+  { path: 'inicio', component: InicioComponent}
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, { useHash: true });

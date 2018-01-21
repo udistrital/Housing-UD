@@ -8,6 +8,7 @@ import { AlojamientoComponent } from 'app/components/paginas/alojamiento/alojami
 import { EntrevistaComponent } from 'app/components/paginas/entrevista/entrevista.component';
 import { AuthGuardService } from 'app/services/auth-guard.service';
 import { PostulacionComponent } from 'app/components/paginas/postulacion/postulacion.component';
+import { NopagefoundComponent } from 'app/components/shared/404/nopagefound/nopagefound.component';
 
 
 
@@ -26,6 +27,7 @@ const pagesRoutes: Routes = [
            canActivate: [AuthGuardService ]
          },
          { path: '', pathMatch: 'full', redirectTo: '/home' },
+         { path: '**', component: NopagefoundComponent }
        ]
      },
 ];

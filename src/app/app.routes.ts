@@ -5,7 +5,6 @@ import { NopagefoundComponent } from 'app/components/shared/404/nopagefound/nopa
 const APP_ROUTES: Routes = [
   { path: 'inicio', component: InicioComponent},
   { path: '', component: NopagefoundComponent }
-  
 
 ];
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlojamientosService } from '../../services/alojamientos.service';
+import { AlojamientosService } from '../../../services/alojamientos.service';
+
 
 
 @Component({

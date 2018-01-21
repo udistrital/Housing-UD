@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from "../../services/usuario.service";
-import { Usuario } from '../../interfaces/usuario.interface';
-//import { AuthService } from "../../services/auth.service";
-import { OAuthService } from "angular-oauth2-oidc";
-//import { JwksValidationHandler } from 'angular-oauth2-oidc';
-//import { googleAuthConfig } from '../../auth.config';
+
+// import { AuthService } from "../../services/auth.service";
+// import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
+// import { googleAuthConfig } from '../../auth.config';
+import { Usuario } from '../../../interfaces/usuario.interface';
+import { UsuarioService } from '../../../services/usuario.service';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 
 @Component({
@@ -14,18 +15,18 @@ import { OAuthService } from "angular-oauth2-oidc";
 })
 export class HomeComponent implements OnInit {
 
-  private usuario:Usuario;
-    //loginFailed: boolean = false;
-    //userProfile: object;
-    private nombre:string;
-    private correo:string;
-    private userProfile:any;
+  private usuario: Usuario;
+    // loginFailed: boolean = false;
+    // userProfile: object;
+    private nombre: string;
+    private correo: string;
+    private userProfile: any;
 
-    //email: string;
+    // email: string;
 
     constructor(private oauthService: OAuthService,
-                //private AuthService:AuthService,
-                private usuarioService:UsuarioService) {
+                // private AuthService:AuthService,
+                private usuarioService: UsuarioService) {
 
 
     }

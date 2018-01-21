@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../interfaces/usuario.interface';
-import { OAuthService } from "angular-oauth2-oidc";
-import { Router } from "@angular/router";
+import { OAuthService } from 'angular-oauth2-oidc';
+import { Router } from '@angular/router';
+import { UsuarioService } from '../../../services/usuario.service';
+
 
 
 @Component({
@@ -12,20 +13,20 @@ import { Router } from "@angular/router";
 })
 export class NavbarComponent implements OnInit {
 
-  private usuario:Usuario;
-  private nombre:string;
+  private usuario: Usuario;
+  private nombre: string;
 
-  private userProfile:any;
+  private userProfile: any;
 
 constructor( private oauthService: OAuthService,
              private router: Router,
-             private _usuarioService:UsuarioService) { }
+             private _usuarioService: UsuarioService) { }
 
   ngOnInit() {
     console.log(this.oauthService.hasValidAccessToken());
      this.loadUserProfile();
       this.nombre = this.name;
-      this.usuario= this._usuarioService.getUsuario();
+      this.usuario = this._usuarioService.getUsuario();
 
   }
 
@@ -35,7 +36,7 @@ constructor( private oauthService: OAuthService,
           return null;
       }
       console.log(claims);
-      return this.nombre= claims['name'];
+      return this.nombre = claims['name'];
   }
 
   loadUserProfile(): void {
@@ -54,10 +55,10 @@ constructor( private oauthService: OAuthService,
     }
 
 
-  public logout():void {
-    console.log("Salir");
+  public logout(): void {
+    console.log('Salir');
      this.oauthService.logOut();
-     //this.router.navigate(['/inicio']);
+     //  sthis.router.navigate(['/inicio']);
  }
 
  /*public esEstudiante():boolean{

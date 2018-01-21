@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router,CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { OAuthService } from 'angular-oauth2-oidc';
-//import { UsuarioService } from "./usuario.service";
-//import { Usuario } from "../interfaces/usuario.interface";
+// import { UsuarioService } from "./usuario.service";
+// import { Usuario } from "../interfaces/usuario.interface";
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  //private usuario: Usuario;
+  // private usuario: Usuario;
 
   constructor( private oauthService: OAuthService ) {
 
-               //private usuarioService:UsuarioService ) {
+               // private usuarioService:UsuarioService ) {
                 // this.usuario = this.usuarioService.getUsuario();
                 }
 
